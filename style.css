@@ -1,0 +1,93 @@
+/* navbar */
+.navbar {
+  background-color: #294c6e;
+}
+.nav-item {
+  padding-right: 30px;
+}
+.tombol {
+  background-color: #a8a8a8;
+  color: white;
+}
+
+/* hero */
+.hero img {
+  width: 315px;
+  margin-top: 20px;
+}
+.hero h4 {
+  font-family: "Bebas Neue";
+  font-size: 38px;
+}
+.hero p {
+  font-size: 24px;
+  font-weight: 100;
+}
+.hero {
+  margin-top: 120px;
+}
+.hero a {
+  display: block;
+  background-color: #1976d2;
+}
+
+/* about */
+.about h2 {
+  font-family: "Bebas Neue";
+  border-bottom: 3px solid #1976d2;
+  border-top: 3px solid #1976d2;
+  margin-top: 100px;
+}
+
+.progres {
+  padding-left: 20px;
+}
+.progres p {
+  text-align: center;
+}
+.progres {
+  margin-top: 50px;
+}
+
+/* utilitty */
+
+body {
+  background-color: #202020;
+  color: white;
+  height: 2000px;
+}
+
+/* desktop version */
+@media (min-width: 992px) {
+  /* nav */
+  .nav-link:hover::after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid white;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+  }
+  .navbar {
+    background-color: #294c6eb3;
+  }
+  /* hero */
+  .hero img {
+    margin-left: 180px;
+    margin-top: -100px;
+  }
+
+  /* about */
+  .about h2 {
+    margin-top: 190px;
+  }
+
+  .progres p {
+    text-align: start;
+    font-size: 23px;
+  }
+  .progres {
+    margin-top: 0;
+  }
+}
