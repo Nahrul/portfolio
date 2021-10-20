@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Source+Sans+Pro:wght@200&display=swap');
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    background-image: url(../img/4562472.jpg);
+    background-size: cover;
+    height: 1000px;
+}
+
+
+.nav-link{
+    margin-right: 15px;
+}
+
+.tombol {
+    text-transform: uppercase;
+    border-radius: 40px;
+}
+
+
+
+
+/* desktop version */
+@media (min-width: 992px) {
+    .nav-link {
+        text-transform: uppercase;
+
+    }
+
+    .nav-link:hover::after {
+        content: '';
+        display: block;
+        border-bottom: 3px solid rgb(255, 255, 255);
+        width: 50%;
+        margin: auto;
+        padding-bottom: 5px;
+        margin-bottom: -8px;
+
+    }
+}
