@@ -12,8 +12,9 @@
 
 /* hero */
 .hero img {
-  width: 315px;
-  margin-top: 20px;
+  width: 400px;
+  margin-top: -50px;
+  margin-left: 20px;
 }
 .hero h4 {
   font-family: "Bebas Neue";
@@ -59,7 +60,27 @@ section#about {
   margin-top: 50px;
 }
 
+/* my project */
+section#project {
+  color: #fff;
+}
+section#project h2 {
+  border-bottom: 3px solid #1976d2;
+  width: 216px;
+  margin: auto;
+  margin-top: 20px;
+}
+section#project .card {
+  color: #000;
+}
+
 /* utilitty */
+.full-page {
+  position: relative;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
 body {
   background-color: #202020;
@@ -84,7 +105,8 @@ body {
   }
   /* hero */
   .hero img {
-    margin-left: 180px;
+    width: 491px;
+    margin-left: 100px;
     margin-top: -100px;
   }
 
@@ -102,5 +124,9 @@ body {
   }
   .progres {
     margin-top: 0;
+  }
+  /* my project */
+  section#project .card {
+    width: 350px;
   }
 }
