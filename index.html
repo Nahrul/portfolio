@@ -7,13 +7,16 @@
     <title>Portofolio | Nahrul Hayat</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/fonts/BebasNeue-Regular.ttf">
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- ny css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
 <!-- navbar -->
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark  mb5">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark  mb5" data-aos="fade-down" data-aos-duration="5000">
           <div class="container">
             <a class="navbar-brand" href="#">Nahrul Hayat</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +28,10 @@
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">About</a>
+                  <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">My Project</a>
+                  <a class="nav-link" href="#project">My Project</a>
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="">
@@ -46,8 +49,11 @@
           <div class="container mt-5">
             <div class="row hero">
                 <div class="col-md-5">
-                    <h4>Hai, Nama Saya Nahrul Hayat</h4>
-                    <p>Saya adalah seorang programer, web design dan seorang teknisi listrik</p>
+                    <h4 data-aos="fade-right" data-aos-duration="5000">Hai, Nama Saya Nahrul Hayat</h4>
+                    <p data-aos="fade-left" delay="20">Saya adalah seorang programer, web design dan seorang teknisi listrik</p>
+                    <!-- <audio autoplay>
+                      <source src="assets/audio/Maid with the Flaxen Hair.mp3" type="audio/mpeg">
+                    </audio> -->
                     
                     <a class="btn mt-4 tombol rounded-pill" href="">
                       Download CV
@@ -65,8 +71,8 @@
           <!-- end hero -->
 
           <!-- about me -->
-      <section id="about">
-        <div class="container">
+      <section id="about" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="container" >
           <div class="row about" >
               <div class="col-md text-center">
                 <h2>About Me</h2>
@@ -134,11 +140,6 @@
             <div class="col mb-3 d-flex justify-content-center">
               <div class="card">
                 <img src="assets/img/3.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
               </div>
             </div>
           </div>
@@ -149,5 +150,10 @@
 
 
   <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 </html>
