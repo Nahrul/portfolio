@@ -1,132 +1,119 @@
-/* navbar */
-.navbar {
-  background-color: #294c6e;
-}
-.nav-item {
-  padding-right: 30px;
-}
-.tombol {
-  background-color: #a8a8a8;
-  color: white;
-}
-
-/* hero */
-.hero img {
-  width: 400px;
-  margin-top: -50px;
-  margin-left: 80px;
-}
-.hero h4 {
-  font-family: "Bebas Neue";
-  font-size: 38px;
-}
-.hero p {
-  font-size: 24px;
-  font-weight: 100;
-}
-.hero {
-  margin-top: 120px;
-  margin-bottom: 100px;
-}
-.hero a {
-  display: block;
-  background-color: #1976d2;
-}
-
-/* about */
-
-#about {
-  background-color: aliceblue;
-  color: #202020;
-}
-section#about {
-  height: 650px;
-}
-.about h2 {
-  font-family: "Bebas Neue";
-  border-bottom: 3px solid #1976d2;
-  width: 200px;
-  margin: auto;
-  margin-top: 20px;
-}
-
-.progres {
-  padding-left: 20px;
-}
-.progres p {
-  text-align: center;
-}
-.progres {
-  margin-top: 50px;
-}
-
-/* my project */
-section#project {
-  color: #fff;
-}
-section#project h2 {
-  border-bottom: 3px solid #1976d2;
-  width: 216px;
-  margin: auto;
-  margin-top: 20px;
-}
-section#project .card {
-  color: #000;
-  width: 18rem;
-}
-/* utilitty */
-.full-page {
-  position: relative;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: #202020;
-  color: white;
-  height: 2000px;
+  font-family: sans-serif;
+  overflow-x: hidden;
 }
 
-/* desktop version */
-@media (min-width: 992px) {
-  /* nav */
-  .nav-link:hover::after {
-    content: "";
-    display: block;
-    border-bottom: 3px solid white;
+/* navbar */
+nav {
+  display: flex;
+  background-color: blueviolet;
+  justify-content: space-around;
+  color: rgb(225, 196, 253);
+  height: 50px;
+  align-items: center;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: rgb(225, 196, 253);
+  text-decoration: none;
+  font-size: 0.8em;
+}
+nav ul li a:hover {
+  color: rgb(239, 223, 255);
+}
+
+/* humberger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(225, 196, 253);
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  opacity: 0;
+  left: -5px;
+  top: -5px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* humberger menu animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: white;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: white;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* responsive */
+
+/* ukuran tablet */
+@media screen and (max-width: 768px) {
+  nav ul {
     width: 50%;
-    margin: auto;
-    padding-bottom: 5px;
-    margin-bottom: -8px;
   }
-  .navbar {
-    background-color: #294c6eb3;
+}
+/* ukuran mobile */
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    display: flex;
   }
-  /* hero */
-  .hero img {
-    width: 491px;
-    margin-left: 180px;
-    margin-top: -100px;
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: -1;
+    background-color: rgba(137, 43, 226, 0.8);
+    transform: translateX(100%);
+    transition: all 1s;
+    opacity: 0;
   }
 
-  /* about */
-  section#about {
-    height: 450px;
-  }
-  .about h2 {
-    margin-top: 50px;
-  }
-
-  .progres p {
-    text-align: start;
-    font-size: 23px;
-  }
-  .progres {
-    margin-top: 0;
-  }
-  /* my project */
-  section#project .card {
-    width: 350px;
+  nav ul.slide {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
