@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FrontEnd</title>
+	<!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/nav.css" />
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- my font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://corsdimanaaja.herokuapp.com/?url=https://fonts.googleapis.com/css2?family=Ceviche+One&family=Fira+Code&family=Roboto&display=swap"
+      rel="stylesheet">
+      <style>
+      	body{
+      		/*background: #3c4a65;*/
+      	}
+      	section#about .imgBx {
+		  background: url(../assets/img/security.jpg);
+		  width: 50%;
+		  background-size: cover;
+		  background-position: center;
+		}
+		/* responsive */
+
+		@media (max-width: 991px) {
+		  section#about {
+		    flex-direction: column;
+		  }
+		  section#about .contentBx,
+		  section#about .imgBx {
+		    width: 100%;
+		    padding: 50px;
+		    min-height: 400px;
+		    text-align: center;
+		  }
+		}
+
+		/*Button Back*/
+		section#about a {
+		  position: relative;
+		  margin: 20px 0 0;
+		  padding: 10px 20px;
+		  text-decoration: none;
+		  border: 1px solid #fff;
+		  display: inline-block;
+		  color: #fff;
+		  transition: 0.5s;
+		  transform: translateY(-40px);
+		  opacity: 0;
+		  visibility: hidden;
+		}
+		section#about .contentBx:hover a {
+		  transform: translateY(0px);
+		  opacity: 1;
+		  visibility: visible;
+		}
+		section#about a:hover {
+		  color: #000;
+		  background: #fff;
+		}
+      </style>
+</head>
+<body>
+	<section id="about">
+      <div class="contentBx">
+        <h2 class="heading">Front-End Development</h2>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+          deleniti quis ad pariatur vitae distinctio unde, rem minima numquam,
+          repellat ut aut harum. Soluta cum omnis incidunt? Nam corrupti,
+          tempore. <br /><br />Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Beatae quisquam porro incidunt nostrum ea tenetur
+          ratione quo odit corporis veritatis, omnis consequatur, cupiditate
+          deserunt quam saepe nobis est! Dignissimos, nisi.
+        </p>
+        <a href="../index.html"><ion-icon name="arrow-back-circle-outline"></ion-icon>Back</a>
+      </div>
+      <div class="imgBx"></div>
+    </section>
+
+    <section id="footer">
+      <footer>
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icon">
+          <li>
+            <a href="https://www.facebook.com/nahrul.hayat.9421" target="_blank"
+              ><ion-icon name="logo-facebook"></ion-icon
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/Nahrul"
+              ><ion-icon name="logo-github"></ion-icon
+            ></a>
+          </li>
+          <li>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/nahrul_128"
+              ><ion-icon name="logo-instagram"></ion-icon
+            ></a>
+          </li>
+        </ul>
+        <ul class="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#project">Services</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Cotact</a></li>
+        </ul>
+        <p>&copy 2021 Nahrul Hayat | All Rights Reserved</p>
+      </footer>
+    </section>
+
+
+    <!-- icon -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://corsdimanaaja.herokuapp.com/?url=https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+</body>
+</html>
