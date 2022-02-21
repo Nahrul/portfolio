@@ -22,10 +22,17 @@
       <script src="../assets/js/vue.js"></script>
       <!-- <script src="https://unpkg.com/vue@3"></script> -->
       <style>
-      	body{
-      		/*background: #3c4a65;*/
-      	}
-      	section#about .imgBx {
+      @media (max-width: 1024px) {
+        section#footer {
+          margin-top: 170px;
+        }
+      }
+      @media (max-width: 700px) {
+        section#footer {
+          margin-top: 150px;
+        }
+      }
+      section#about .imgBx {
 		  background: url(../assets/img/security.jpg);
 		  width: 50%;
 		  background-size: cover;
