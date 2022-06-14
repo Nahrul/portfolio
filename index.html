@@ -36,7 +36,7 @@
   </head>
   <body id="app">
     <!-- section loader -->
-    <section id="loader">
+    <!-- <section id="loader">
       <div class="loader">
         <span></span>
         <span></span>
@@ -44,7 +44,7 @@
         <span></span>
         <h3>Loading...</h3>
       </div>
-    </section>
+    </section> -->
 
     <!-- end loader -->
     <section id="nav">
@@ -53,63 +53,18 @@
         <div id="toggle"></div>
         <div id="navbar">
           <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">About</router-link></li>
-            <li><a href="#services">Service</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#project">Service</a></li>
             <li><a href="#">Team</a></li>
-            <li><a href="#">Portofolio</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="https://wa.me/083130325742?text=Hello%2C%20Nahrul">Contact</a></li>
 
 
           </ul>
         </div>
       </header>
     </section>
-
-    <router-view></router-view>
-
-    <section id="footer">
-      <footer>
-        <div class="waves">
-          <div class="wave" id="wave1"></div>
-          <div class="wave" id="wave2"></div>
-          <div class="wave" id="wave3"></div>
-          <div class="wave" id="wave4"></div>
-        </div>
-        <ul class="social_icon">
-          <li>
-            <a href="https://www.facebook.com/nahrul.hayat.9421" target="_blank"
-              ><ion-icon name="logo-facebook"></ion-icon
-            ></a>
-          </li>
-          <li>
-            <a href="https://github.com/Nahrul"
-              ><ion-icon name="logo-github"></ion-icon
-            ></a>
-          </li>
-          <li>
-            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/nahrul_128"
-              ><ion-icon name="logo-instagram"></ion-icon
-            ></a>
-          </li>
-        </ul>
-        <ul class="list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#project">Services</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#">Cotact</a></li>
-        </ul>
-        <p>&copy 2021 Nahrul Hayat | All Rights Reserved</p>
-        
-      </footer>
-    </section>
-
-    <script>
-      const Home = { template: `
 
     <!-- section Home -->
     <section id="home">
@@ -120,7 +75,7 @@
             <p>Web Developer & Electrical Engineering</p>
           </div>
           <div class="hero-image">
-            <img src="assets/img/Hero image.png" alt="" />
+            <img src="assets/img/Hero_image.png" alt="" />
           </div>
         </header>
 
@@ -195,29 +150,52 @@
         </div>
       </div>
     </section>
-    <!-- end Section Project -->` };
-      const About = { template: `<section id="about">
-      <div class="contentBx">
-        <h2 class="heading">About Us</h2>
-        <p class="text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-          deleniti quis ad pariatur vitae distinctio unde, rem minima numquam,
-          repellat ut aut harum. Soluta cum omnis incidunt? Nam corrupti,
-          tempore. <br /><br />Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Beatae quisquam porro incidunt nostrum ea tenetur
-          ratione quo odit corporis veritatis, omnis consequatur, cupiditate
-          deserunt quam saepe nobis est! Dignissimos, nisi.
-        </p>
-      </div>
-      <div class="imgBx"></div>
-    </section>
-    <!-- end Section about -->
-` };
+    <!-- end Section Project -->`
 
+    <section id="footer">
+      <footer>
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icon">
+          <li>
+            <a href="https://www.facebook.com/nahrul.hayat.9421" target="_blank"
+              ><ion-icon name="logo-facebook"></ion-icon
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/Nahrul"
+              ><ion-icon name="logo-github"></ion-icon
+            ></a>
+          </li>
+          <li>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/nahrul_128"
+              ><ion-icon name="logo-instagram"></ion-icon
+            ></a>
+          </li>
+        </ul>
+        <ul class="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#project">Services</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Cotact</a></li>
+        </ul>
+        <p>&copy 2021 Nahrul Hayat | All Rights Reserved</p>
+        
+      </footer>
+    </section>
+
+    <script>
       const back = { template: "<div> backend</div>"}
 
       const routes = [
-        { path: "/", component: Home },
         { path: "/about", component: About },
         { path: "/back", component: back },
 

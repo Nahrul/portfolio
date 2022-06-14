@@ -91,8 +91,8 @@ section#nav .logo{
   height: 60px;
   line-height: 60px;
   color: #fff;
-  font-weight: 700;
-  font-size: 2em;
+  font-weight: 650;
+  font-size: 1.7em;
   text-decoration: none;
   cursor: pointer;
   padding-left: 20px;
@@ -234,6 +234,9 @@ section#nav #navbar ul li a:hover
   .navigation.slide {
     display: flex;
     right: 80px;
+  }
+  section#nav .logo{
+    font-size: 1.2em;
   }
 }
 /* ------------------
@@ -541,6 +544,11 @@ footer .wave#wave4 {
 @media (max-width: 700px) {
   section#footer {
     margin-top: 1500px;
+  }
+}
+@media (min-width: 1024px) {
+  section#footer {
+    margin-top: 700px;
   }
 }
 
