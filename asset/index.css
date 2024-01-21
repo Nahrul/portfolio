@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600&family=Poppins:wght@300;400;600;700&display=swap');
+
+
+/*
+font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Inter', sans-serif;
+	color: #000;
+}
+body{
+/*	height: 10000px;*/
+}
+/*-------------------------------------
+header
+---------------------------------------*/
+
+/*--------------------------------------
+navbar
+----------------------------------------*/
+header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3rem;
+	flex-wrap: wrap;
+}
+
+nav {
+	margin:0 7rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav .logo{
+	font-size: 2rem;
+	font-family: 'inter', sans-serif;
+	font-weight: 600;
+	color: #0db760;
+}
+
+nav.link{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+nav ul{
+	display: flex;
+	gap: 40px;
+}
+nav ul li{
+	list-style: none;
+}
+nav ul li a{
+	font-size: 16px;
+	font-style: normal;
+	font-family: 'Inter', sans-serif;
+	font-weight: 500;
+	line-height: 145%;
+	text-decoration: none;
+	color: #000;
+}
+nav .cv{
+	border: 2px solid #0db760;
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+}
+/*--------------------------------------------
+end navbar
+----------------------------------------------*/
+
+/*---------------------------------------------
+jumbotron
+-----------------------------------------------*/
+header section#jumbotron{
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+	align-items: center;
+	max-width: 80%;
+	margin-top: 7rem;
+	z-index: 3;
+}
+
+header section#jumbotron::before{
+	content: '';
+	background-image: url('./img/Design.png');
+	position: absolute;
+	width: 500px;
+	height: 503px;
+	top: -250px;
+	left: -200px;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
+}
+header section#jumbotron .welcome{
+	width: 50%;
+}
+header section#jumbotron .welcome h3{
+	font-family: 'Inter', sans-serif;
+	font-size: 3rem;
+	font-weight: 600;
+}
+header section#jumbotron .welcome p{
+	font-size: 0.9rem;
+	width: 70%;
+	margin-top: 1rem;
+}
+header section#jumbotron .welcome button{
+	padding: 1rem 1.5rem;
+	background-color: #0db760;
+	color: #fff;
+	margin-top: 2rem;
+	border-style: none;
+	border-radius: 8px;
+	font-size: 0.9rem;
+}
+header section#jumbotron .welcome span{
+	color: #0db760;
+}
+
+header section#jumbotron .image{
+	position: relative;
+	width: 300px;
+	height: 250px;
+	background-color: #0db760;
+}
+
+header section#jumbotron .image::before{
+	content: '';
+	width: 300px;
+	height: 300px;
+	bottom: 0;
+	position: absolute;
+	background-image: url('./img/portfolio.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 4;
+}
+header section#jumbotron .image::after{
+	content: '';
+	width: 250px;
+	height: 280px;
+	top: -35px;
+	right: 35px;
+	position: absolute;
+	border: 3px solid #000;
+}
+
+/*---------------------------------------------
+end jumbotron
+-----------------------------------------------*/
+
+/*--------------------------------------------
+end header
+----------------------------------------------*/
+
+
+/*----------------------------------------------
+Main
+------------------------------------------------*/
+/*-----------------------------------------------
+Rewards
+-------------------------------------------------*/
+main{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 7rem;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+main section#rewards{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 90%;
+}
+main section#rewards div{
+	font-size: 1.8rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	padding-right: 5rem;
+	border-right: 1px solid #0db760;
+}
+main section#rewards div:last-child{
+	border-right: none;
+}
+
+main section#rewards div h3{
+	color: #0db760;
+}
+
+main section#rewards div p{
+	font-weight: 400;
+}
+/*-------------------------------------------------
+End Reward
+---------------------------------------------------*/
+/*--------------------------------------------------
+skills
+----------------------------------------------------*/
+main section#skills{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 7rem;
+	max-width: 80%;
+}
+main section#skills .welcome{
+}
+main section#skills .welcome h3{
+	font-family: 'Poppins',sans-serif;
+	font-size: 2.5rem;
+	font-weight: 600;
+	width: 80%;
+}
+main section#skills .welcome p{
+	font-size: 0.9rem;
+	width: 70%;
+	font-weight: 400;
+	margin-top: 1rem;
+}
+main section#skills .welcome button{
+	padding: 1rem 1.5rem;
+	background-color: #0db760;
+	color: #fff;
+	margin-top: 2rem;
+	border-style: none;
+	border-radius: 8px;
+	font-size: 0.9rem;
+}
+main section#skills .welcome span{
+	color: #0db760;
+}
+
+
+main section#skills .skills{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+main section#skills .skills div{
+	width: 40%;
+}
+main section#skills .skills .right{
+	margin-left: 15rem;
+}
+/*------------------------------------
+end skills
+--------------------------------------*/
+/*-------------------------------------
+portfolio
+---------------------------------------*/
+main section#portfolio{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10rem;
+	max-width: 80%;
+}
+
+main section#portfolio .welcome h3{
+	font-family: 'Poppins', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 600;
+	width: 100%;
+}
+main section#portfolio .welcome span{
+	color: #0db760;
+}
+
+main section#portfolio .welcome p{
+	font-size: 0.9rem;
+	font-weight: 400;
+	width: 70%;
+	margin-top: 1rem;
+}
+main section#portfolio .welcome button{
+	padding: 1rem 1.5rem;
+	background-color: #0db760;
+	color: #fff;
+	margin-top: 2rem;
+	border-style: none;
+	border-radius: 8px;
+	font-size: 0.9rem;
+}
+
+main section#portfolio .portfolio{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+
+}
+
+main section#portfolio .portfolio .portfolio1{
+	width: 325px;
+	height: 547px;
+	background-image: url('./img/portfolio1.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+main section#portfolio .portfolio .portfolio2{
+	width: 325px;
+	height: 547px;
+	background-image: url('./img/portfolio2.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+/*--------------------------------------------
+end portfolio
+----------------------------------------------*/
+/*----------------------------------------------
+reviews
+------------------------------------------------*/
+main section#reviews{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10rem;
+	max-width: 80%;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+main section#reviews .welcome{
+	width: 100%;
+	justify-self: start;
+
+}
+
+main section#reviews .welcome h3{
+	font-family: 'Poppins', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 600;
+	width: 50%;
+}
+main section#reviews .welcome span{
+	color: #0db760;
+}
+
+
+main section#reviews .reviews{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
+}
+
+main section#reviews .reviews .review1{
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	gap: 1rem;
+}
+
+main section#reviews .reviews .review1 .profile{
+	display: flex;
+	align-items: center;
+}
+main section#reviews .reviews .review1 .profile .img{
+	width: 40px;
+	height: 40px;
+	background-image: url('./img/customers.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 50%;
+	margin-right: 1rem;
+}
+/*----------------------------------------------------
+end review
+------------------------------------------------------*/
+/*-----------------------------------------------------
+contact us
+------------------------------------------------------*/
+
+main section#contact{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10rem;
+	max-width: 100%;
+	flex-direction: column;
+}
+
+main section#contact .welcome{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+main section#contact .welcome h3{
+	font-family: 'Poppins', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 600;
+}
+main section#contact .welcome span{
+	color: #0db760;
+}
+main section#contact .welcome p{
+	font-size: 0.9rem;
+	font-weight: 400;
+	width: 60%;
+	text-align: center;
+/*	margin-top: 1rem;*/
+}
+main section#contact .contact{
+	display: flex;
+	justify-content: center;
+/*	align-items: center;*/
+	margin-top: 8rem;
+	gap: 7rem;
+}
+main section#contact .contact .contact-info{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5rem;
+	flex-direction: column;
+}
+main section#contact .contact .c-info{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+main section#contact .contact .contact-info .info{
+	margin-top: 8px;
+}
+main section#contact .contact .contact-info .info h4{
+	color: #BEC0BF;
+}
+main section#contact .contact .icon{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	width: 40px;
+	height: 40px;
+	background-color: #0db760;
+}
+
+main section#contact .contact-input{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+/*	gap: 2rem;*/
+}
+
+main section#contact .contact-input input{
+	padding: 1rem 1.5rem;
+	outline: none;
+	border: 1px solid #BEC0BF;
+	border-radius: 15px;
+}
+main section#contact .contact-input textarea{
+	border-radius: 15px;
+	outline: none;
+	border: 1px solid #BEC0BF;
+	margin-top: 2rem;
+	width: 100%;
+	height: 200px;
+	padding: 1rem 1.5rem;
+}
+
+main section#contact .contact-input .row{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+main section#contact .contact-input .col{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+main section#contact button{
+	padding: 0.8rem 1rem;
+	background-color: #0db760;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	margin-top: 2rem;
+	align-self: flex-end;
+}
+/*-------------------------------------------------------
+end Contact
+--------------------------------------------------------*/
+/*--------------------------------------------------------
+Footer
+---------------------------------------------------------*/
+footer{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+/*	width: 90%;*/
+	border-top: 1px solid #bec0bf;
+	padding: 2rem 0;
+	margin-top: 5rem;
+}
+footer .sosmed{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 10px;
+}
+footer .sosmed .icon{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-color: #0db670;
+}
+
+/*--------------------------------------------------------
+end Footer
+---------------------------------------------------------*/
+/*-----------------------------------------------------
+responsive design
+---------------------------------------------------------*/
+@media screen and (max-width: 768px){
+	/* navbar	*/
+	nav ul{
+		display: none;
+	}
+	nav .cv{
+		display: none;
+	}
+	nav{
+		justify-content: start;
+		margin: 0 2rem;
+	}
+	nav .logo{
+		font-size: 1.5rem;
+	}
+
+	/* jumbotron	*/
+	header section#jumbotron{
+		flex-direction: column;
+		max-width: 90%;
+		justify-content: start;
+		margin-top: 3rem;
+		margin-left: 2rem;
+	}
+	header section#jumbotron::before{
+		top: 40px;
+		left: -120px;
+	}
+	header section#jumbotron .welcome{
+		width: 100%;
+	}
+	header section#jumbotron .welcome h3{
+		font-size: 2rem;
+	}
+	header section#jumbotron .welcome p{
+		width: 100%;
+		font-size: 0.7rem;
+	}
+	header section#jumbotron .welcome button{
+		display: none;
+	}
+	header section#jumbotron .image{
+		width: 250px;
+		height: 200px;
+		margin-top: 7rem;
+		right: -20px;
+	}
+	header section#jumbotron .image::before{
+		width: 250px;
+		height: 250px;
+	}
+	header section#jumbotron .image::after{
+		width: 200px;
+		height: 230px;
+	}
+	/* rewards	*/
+	main section#rewards{
+		justify-content: start;
+		flex-direction: column;
+		gap: 4rem;
+	}
+	main section#rewards div{
+		width: 90%;
+		font-size: 1.7rem;
+		border: none;
+		padding-right: 0;
+	}
+	main section#rewards div:nth-child(2){
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+	}
+	/*	skills*/
+	main section#skills{
+		margin-top: 5rem;
+		flex-direction: column;
+	}
+	main section#skills .welcome h3{
+		font-size: 2rem;
+		text-align: center;
+		width: 100%;
+	}
+	main section#skills .welcome p{
+		text-align: center;
+		width: 100%;
+	}
+	main section#skills .welcome button{
+		display: none;
+	}
+	main section#skills .skills{
+		width: 100%;
+	}
+	main section#skills .skills div{
+		width: 100%;
+		text-align: center;
+		margin-top: 2.5rem;
+	}
+	main section#skills .skills .right{
+		margin-left: 0;
+	}
+
+	/*portfolio*/
+	main section#portfolio .welcome{
+		margin-bottom: 8rem;
+	}
+	main section#portfolio{
+		flex-direction: column;
+	}
+	main section#portfolio .welcome h3{
+		font-size: 2rem;
+	}
+	main section#portfolio .welcome p{
+		font-size: 0.7rem;
+	}
+	main section#portfolio .portfolio .portfolio1{
+		width:225px;
+		height: 447px;
+		margin-bottom: 4rem;
+	}
+	main section#portfolio .portfolio{
+		flex-direction: column;
+	}
+	main section#portfolio .portfolio .portfolio2{
+		width: 225px;
+		height: 447px;
+	}
+}
