@@ -557,6 +557,7 @@ responsive design
 	}
 	nav .logo{
 		font-size: 1.5rem;
+		z-index: 2;
 	}
 
 	/* jumbotron	*/
@@ -576,6 +577,7 @@ responsive design
 	}
 	header section#jumbotron .welcome h3{
 		font-size: 2rem;
+		z-index: 2;
 	}
 	header section#jumbotron .welcome p{
 		width: 100%;
