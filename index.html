@@ -180,6 +180,7 @@
 						<div class="info">
 							<h4>Email me</h4>
 							<p>tebo0235@gmail.com</p>
+							n
 						</div>
 					</div>
 					<div class="c-info">
@@ -199,18 +200,18 @@
 				<div class="contact-input">
 					<div class="row">
 						<div class="col">
-							<input type="text" placeholder="Full name">
-							<input type="text" placeholder="Your email">	
+							<input type="text" id="fullname" placeholder="Full name">
+							<input type="text" id="email" placeholder="Your email">	
 						</div>
 						<div class="col">
-							<input type="text" placeholder="Phone number">
-							<input type="text" placeholder="Budget">
+							<input type="text" id="number" placeholder="Phone number">
+							<input type="text" id="budget" placeholder="Budget">
 						</div>
 					</div>
-					<textarea type="text"  placeholder="Message"></textarea>
+					<textarea type="text" id="message"  placeholder="Message"></textarea>
 				</div>
 			</div>
-			<button>Submit Message</button>
+			<button onclick="whatsapp()">Submit Message</button>
 		</section>
 	</main>
 	<footer>
@@ -257,9 +258,23 @@
 				</a>
 			</div>
 		</div>
+
 	</footer>
 	<script>
 	  AOS.init();
+	  function whatsapp() {
+	  	var fullname = document.getElementById('fullname').value;
+	  	var email = document.getElementById('email').value;
+	  	var number = document.getElementById('number').value;
+	  	var budget = document.getElementById('budget').value;
+	  	var message = document.getElementById('message').value;
+
+	  	console.log(fullname,email,number,budget,message);
+	  	var link = `https://wa.me/6283130325742?text=Nama:${fullname}+Email:${email}+Number:${number}+Budget:${budget}+${message}`.replace(/ /g, '+');
+	  	// link.replace(/ /g, '+');
+	  	window.location = link;
+	  	console.log(link)
+	  }
 	</script>
 </body>
 </html>
