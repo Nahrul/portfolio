@@ -568,8 +568,8 @@ responsive design
 		margin-left: 2rem;
 	}
 	header section#jumbotron::before{
-		top: 40px;
-		left: -120px;
+		top: -185px;
+		left: -210px;
 	}
 	header section#jumbotron .welcome{
 		width: 100%;
@@ -606,7 +606,7 @@ responsive design
 	}
 	main section#rewards div{
 		width: 90%;
-		font-size: 1.7rem;
+		font-size: 1.5rem;
 		border: none;
 		padding-right: 0;
 	}
@@ -668,5 +668,43 @@ responsive design
 	main section#portfolio .portfolio .portfolio2{
 		width: 225px;
 		height: 447px;
+	}
+	/*review*/
+	main section#reviews{
+		display: none;
+	}
+	/*contact us*/
+	main section#contact{
+		max-width: 90%;
+	}
+	main section#contact .contact{
+		margin-top: 5rem;
+	}
+	main section#contact .contact .contact-info{
+		display: none;
+	}
+	main section#contact .welcome h3{
+		font-size: 2rem;
+	}
+	main section#contact .welcome p{
+		text-align: left;
+		width: 100%;
+	}
+	main section#contact .contact-input input{
+		padding: 1rem 0.5rem;
+		width: 140px;
+	}
+	main section#contact .contact-input textarea{
+		height: 120px;
+	}
+	/*footer*/
+	footer{
+		margin: 3rem 10px;
+		margin-bottom: 0;
+		flex-direction: column;
+		gap: 7px;
+	}
+	footer h4{
+		font-size: 15px;
 	}
 }
