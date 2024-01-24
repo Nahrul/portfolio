@@ -201,11 +201,11 @@
 					<div class="row">
 						<div class="col">
 							<input type="text" id="fullname" placeholder="Full name">
-							<input type="text" id="email" placeholder="Your email">	
+							<input type="email" id="email" placeholder="Your email">	
 						</div>
 						<div class="col">
-							<input type="text" id="number" placeholder="Phone number">
-							<input type="text" id="budget" placeholder="Budget">
+							<input type="number" id="number" placeholder="Phone number">
+							<input type="number" id="budget" placeholder="Budget">
 						</div>
 					</div>
 					<textarea type="text" id="message"  placeholder="Message"></textarea>
@@ -270,7 +270,7 @@
 	  	var message = document.getElementById('message').value;
 
 	  	console.log(fullname,email,number,budget,message);
-	  	var link = `https://wa.me/6283130325742?text=Nama:${fullname}%0AEmail:${email}%0ANumber:${number}%0ABudget:${budget}%0A${message}`.replace(/ /g, '+').replace(/\n/g, '%0A');
+	  	var link = `https://wa.me/6283130325742?text=Nama:${fullname}%0A%0AEmail:${email}%0A%0ANumber:${number}%0A%0ABudget:${budget}%0A%0A${message}`.replace(/ /g, '+').replace(/\n/g, '%0A');
 	  	// link.replace(/ /g, '+');
 	  	window.location = link;
 	  	console.log(link)
