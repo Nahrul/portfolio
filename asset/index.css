@@ -267,10 +267,14 @@ portfolio
 ---------------------------------------*/
 main section#portfolio{
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-top: 10rem;
+	margin-bottom: 1rem;
 	max-width: 80%;
+	text-align: center;
+
 }
 
 main section#portfolio .welcome h3{
@@ -286,7 +290,7 @@ main section#portfolio .welcome span{
 main section#portfolio .welcome p{
 	font-size: 0.9rem;
 	font-weight: 400;
-	width: 70%;
+	/* width: 70%; */
 	margin-top: 1rem;
 }
 main section#portfolio .welcome button{
@@ -297,6 +301,7 @@ main section#portfolio .welcome button{
 	border-style: none;
 	border-radius: 8px;
 	font-size: 0.9rem;
+	margin-bottom: 3rem;
 }
 
 main section#portfolio .portfolio{
@@ -308,17 +313,17 @@ main section#portfolio .portfolio{
 }
 
 main section#portfolio .portfolio .portfolio1{
-	width: 325px;
-	height: 547px;
-	background-image: url('./img/portfolio1.jpeg');
-	background-size: cover;
+	width: 100%;
+	height: 600px;
+	background-image: url('./img/portfolio1.png');
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 main section#portfolio .portfolio .portfolio2{
-	width: 325px;
-	height: 547px;
-	background-image: url('./img/portfolio2.jpeg');
-	background-size: cover;
+	width: 100vw;
+	height: 600px;
+	background-image: url('./img/portfolio2.png');
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 /*--------------------------------------------
@@ -653,6 +658,7 @@ responsive design
 	}
 	main section#portfolio{
 		flex-direction: column;
+		text-align: start;
 	}
 	main section#portfolio .welcome h3{
 		font-size: 2rem;
@@ -661,16 +667,18 @@ responsive design
 		font-size: 0.7rem;
 	}
 	main section#portfolio .portfolio .portfolio1{
-		width:225px;
-		height: 447px;
+		width: 100vw;
+		height: 300px;
+		background-size: 100%;
 		margin-bottom: 4rem;
 	}
 	main section#portfolio .portfolio{
 		flex-direction: column;
 	}
 	main section#portfolio .portfolio .portfolio2{
-		width: 225px;
-		height: 447px;
+		width: 100vw;
+		height: 300px;
+		background-size: 100%;
 	}
 	/*review*/
 	main section#reviews{
