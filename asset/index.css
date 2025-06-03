@@ -50,7 +50,7 @@ body.dark-theme {
   background: #1f2035 !important;
 }
 body.dark-theme, body.dark-theme * {
-  color: #fff !important;
+  color: #fff;
 }
 /*-------------------------------------
 header
@@ -162,6 +162,11 @@ header section#jumbotron .welcome button{
 	border-style: none;
 	border-radius: 8px;
 	font-size: 0.9rem;
+	z-index: 10;
+}
+header section#jumbotron .welcome button a{
+	text-decoration: none;
+	color: #fff;
 }
 header section#jumbotron .welcome span{
 	color: #0db760;
@@ -257,8 +262,6 @@ main section#skills{
 	margin-top: 7rem;
 	max-width: 80%;
 }
-main section#skills .welcome{
-}
 main section#skills .welcome h3{
 	font-family: 'Poppins',sans-serif;
 	font-size: 2.5rem;
@@ -279,6 +282,10 @@ main section#skills .welcome button{
 	border-style: none;
 	border-radius: 8px;
 	font-size: 0.9rem;
+}
+main section#skills .welcome button a{
+	text-decoration: none;
+	color: #fff;
 }
 main section#skills .welcome span{
 	color: #0db760;
