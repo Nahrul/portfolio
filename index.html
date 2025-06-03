@@ -5,54 +5,59 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>portfolio</title>
 	<link rel="stylesheet" type="text/css" href="asset/index.css">
-	<!-- aos -->
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 </head>
 <body>
 	<header>
 		<nav>
 			<div class="logo">Nahdevl</div>
 			<ul class="link">
-				<li><a href="#">About</a></li>
-				<li><a href="#">Skills</a></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Testimonial</a></li>
+				<li><a href="#rewards">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#reviews">Testimonial</a></li>
 			</ul>
-			<a class="cv" href="#">Download CV</a>
+			<a class="cv" href="https://drive.google.com/file/d/1Lna_iNaJOVzFS5K19kIP1yCjkQVYmnQJ/view?usp=sharing">Download CV</a>
+			<!-- Tambahkan di dalam <nav> -->
+			<!-- Ganti tombol lama dengan ini di dalam <nav> -->
+			<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+			<span class="toggle-icon">🌙</span>
+			<span class="toggle-text">Dark Mode</span>
+			</button>
 		</nav>
 		<section id="jumbotron">
-			<div class="welcome" data-aos="zoom-in">
-				<h3>I Have <span>Programming</span> Experience</h3>
+			<div class="welcome">
+				<h3>I Have <span id="typed"></span> Experience</h3>
 				<p>I'm Nahdevl,a fullstack developer for website businesses, portfolio, marketplace and landing page</p>
 				<button>Contact Me</button>
 			</div>
-			<div class="image" data-aos="fade-left"></div>
+			<div class="image"></div>
 		</section>
 	</header>
 	<main>
 		<section id="rewards">
-			<div data-aos="fade-right">
+			<div>
 				<h3>80+</h3>
 				<p>Satisfied Clients</p>
 			</div>
-			<div data-aos="fade-left">
+			<div>
 				<h3>200+</h3>
 				<p>Projects Completed</p>
 			</div>
-			<div data-aos="fade-right">
+			<div>
 				<h3>99+</h3>
 				<p>Review Given</p>
 			</div>
 		</section>
 		<section id="skills">
-			<div class="welcome" data-aos="fade-up">
+			<div class="welcome" >
 				<h3>Why Hire Me For Your Next <span>Project?</span></h3>
 				<p>I'm specialist in Fullstack web developer. My passion is created web & solving problems in code</p>
 				<button>Hire Me</button>
 			</div>
-			<div class="skills">
-				<div data-aos="zoom-in-right">
+			<div class="skills fade-right">
+				<div class="fade-left">
 					<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g id="diamond-outline (2) 1">
 					<path id="Vector" d="M2.625 9.625H25.375M1.93703 10.2927L13.2984 25.0288C13.3809 25.1365 13.4872 25.2237 13.6088 25.2837C13.7305 25.3437 13.8643 25.3749 14 25.3749C14.1357 25.3749 14.2695 25.3437 14.3912 25.2837C14.5128 25.2237 14.6191 25.1365 14.7016 25.0288L26.063 10.2927C26.1747 10.1473 26.2395 9.97129 26.2488 9.78814C26.258 9.60498 26.2114 9.42333 26.1149 9.26734L22.2611 3.04664C22.1818 2.91791 22.0708 2.81159 21.9388 2.73779C21.8068 2.664 21.6582 2.62517 21.507 2.625H6.49305C6.34183 2.62517 6.19316 2.664 6.06117 2.73779C5.92918 2.81159 5.81824 2.91791 5.73891 3.04664L1.88508 9.26734C1.78864 9.42333 1.74196 9.60498 1.75124 9.78814C1.76052 9.97129 1.82532 10.1473 1.93703 10.2927V10.2927Z" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -62,7 +67,7 @@
 					<h3>Front-End Developer</h3>
 					<p>create website for user use modern framework or pure css</p>
 				</div>
-				<div class="right" data-aos="zoom-in-left">
+				<div class="right fade-up">
 					<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g id="pulse-outline 1">
 					<path id="Vector" d="M2.625 17.5H6.125L9.625 3.5L13.125 24.5L16.625 12.25L18.375 17.5H21.875" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -72,7 +77,7 @@
 					<h3>Back-End Developer</h3>
 					<p>Iam create the website use logic and clean code structure</p>
 				</div>
-				<div data-aos="zoom-in-right">
+				<div class="fade-right">
 					<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g id="school-outline 1">
 					<path id="Vector" d="M1.75 10.5L14 3.5L26.25 10.5L14 17.5L1.75 10.5Z" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -85,22 +90,22 @@
 			</div>
 		</section>
 		<section id="portfolio">
-			<div class="welcome" data-aos="zoom-in-right">
+			<div class="welcome fade-left" >
 				<h3>My Creative Works Latest <span>Projects</span></h3>
 				<p>I have selected and mentioned here some of my latest projects to share with you</p>
 				<button>Show More</button>
 			</div>
 			<div class="portfolio">
-				<div class="portfolio1"></div>
-				<div class="portfolio2"></div>
+				<div class="portfolio1 fade-scale"></div>
+				<div class="portfolio2 fade-scale"></div>
 			</div>
 		</section>
 		<section id="reviews">
-			<div class="welcome">
+			<div class="welcome fade-up">
 				<h3>Our Customers Say Something <span>About Us</span></h3>
 			</div>
 			<div class="reviews">
-				<div class="review1">
+				<div class="review1 fade-left">
 					<div class="star">
 						<img src="./asset/icon/Star.png">
 						<img src="./asset/icon/Star.png">
@@ -117,7 +122,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="review1">
+				<div class="review1 fade-left">
 					<div class="star">
 						<img src="./asset/icon/Star.png">
 						<img src="./asset/icon/Star.png">
@@ -134,7 +139,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="review1">
+				<div class="review1 fade-left">
 					<div class="star">
 						<img src="./asset/icon/Star.png">
 						<img src="./asset/icon/Star.png">
@@ -154,12 +159,12 @@
 			</div>
 		</section>
 		<section id="contact">
-			<div class="welcome" data-aos="zoom-in-right">
+			<div class="welcome fade-down" >
 				<h3>Let's Discuss Your <span>Project</span></h3>
 				<p>Let's Make something new, different and more maningful or make thing more visual or conceptual</p>
 			</div>
 			<div class="contact">
-				<div class="contact-info">
+				<div class="contact-info fade-left">
 					<div class="c-info">
 						<div class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -197,7 +202,7 @@
 					</div>
 
 				</div>
-				<div class="contact-input">
+				<div class="contact-input fade-right">
 					<div class="row">
 						<div class="col">
 							<input type="text" id="fullname" placeholder="Full name">
@@ -211,7 +216,7 @@
 					<textarea type="text" id="message"  placeholder="Message"></textarea>
 				</div>
 			</div>
-			<button onclick="whatsapp()">Submit Message</button>
+			<button class="fade-up" onclick="whatsapp()">Submit Message</button>
 		</section>
 	</main>
 	<footer>
@@ -260,8 +265,29 @@
 		</div>
 
 	</footer>
+	<div class="custom-cursor"></div>
+	<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+	<script src="script.js"></script>
+
 	<script>
-	  AOS.init();
+	const themeToggle = document.getElementById('theme-toggle');
+	const toggleIcon = themeToggle.querySelector('.toggle-icon');
+	const toggleText = themeToggle.querySelector('.toggle-text');
+
+	themeToggle.addEventListener('click', function() {
+	document.body.classList.toggle('dark-theme');
+	const dark = document.body.classList.contains('dark-theme');
+	toggleIcon.textContent = dark ? '☀️' : '🌙';
+	toggleText.textContent = dark ? 'Light Mode' : 'Dark Mode';
+	});
+	new Typed('#typed', {
+		strings: ['Programming', 'Design', 'Development', 'UI/UX', 'Database'],
+		typeSpeed: 90,
+		backSpeed: 70,
+		backDelay: 2000,
+		loop: true
+	});
+
 	  function whatsapp() {
 	  	var fullname = document.getElementById('fullname').value;
 	  	var email = document.getElementById('email').value;
