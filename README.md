@@ -30,29 +30,27 @@ Portofolio ini dibangun sebagai *Single-Page Application* (SPA) dengan navigasi 
 
 ## 📁 Struktur Repositori
 
-Struktur file dirancang agar bersih dan mudah dikelola dengan pemisahan CSS yang modular:
+```
 portfolio/
 ├── asset/
-│   ├── icon/            # Ikon dan SVG (misal: Bintang, Sosmed)
-│   ├── base.css         # Gaya dasar: Navbar, Footer, Tema, Utilitas
-│   ├── home.css         # Gaya spesifik untuk halaman index.html
-│   ├── project.css      # Gaya untuk grid projects.html
-│   ├── project-detail.css # Gaya KHUSUS untuk halaman detail proyek
-│   └── (gambar)/        # Folder untuk gambar proyek dan hero
-├── project-data.js      # Data (JSON) semua proyek untuk dimuat secara dinamis
-├── index.html           # Halaman Utama (Home)
-├── projects.html        # Halaman Daftar Semua Proyek
-├── project-detail.html  # Template Halaman Detail Proyek Dinamis
-└── README.md            # File yang sedang Anda baca
+│   ├── icon/                  # Ikon dan SVG (misal: Bintang, Sosmed)
+│   ├── css/                   # Berisi semua file css
+│   ├── js/                    # Berisi semua file Javascript
+│   └── img/                   # Folder untuk gambar proyek dan hero
+├── index.html                 # Halaman Utama (Home)
+├── projects.html              # Halaman Daftar Semua Proyek
+├── project-detail.html        # Template Halaman Detail Proyek Dinamis
+└── README.md                  # File yang sedang Anda baca
+```
 
-🤝 Kontribusi
-Portofolio ini dibuat untuk tujuan pembelajaran dan showcase. Saran atau kritik konstruktif sangat diterima. Jika Anda menemukan bug atau memiliki ide untuk perbaikan:
+## 🤝 Kontribusi
+Portofolio ini dibuat untuk tujuan pembelajaran dan showcase. Saran atau kritik konstruktif sangat diterima. Jika Anda menemukan bug atau memiliki ide untuk perbaikan: 
 Fork repositori ini.
 
-📞 Hubungi Saya
-Nahrul Hayat
-LinkedIn: https://www.linkedin.com/in/nahrul-hayat-76b60a28b
-Instagram: https://www.instagram.com/nahdevl.io
-Email: nahrulhayat128@gmail.com
+## 📞 Hubungi Saya
+Nahrul Hayat  
+LinkedIn: https://www.linkedin.com/in/nahrul-hayat-76b60a28b  
+Instagram: https://www.instagram.com/nahdevl.io  
+Email: nahrulhayat128@gmail.com  
 
 Dibuat dengan ❤️ oleh Nahdevl
