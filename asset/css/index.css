@@ -26,7 +26,7 @@ overflow-x: hidden;
   color: #222;
   border: 2px solid #0db760;
   border-radius: 20px;
-  padding: 1% 1vw;
+  padding: 1% 3vw;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -50,7 +50,7 @@ body.dark-theme {
   background: #1f2035 !important;
 }
 body.dark-theme, body.dark-theme * {
-  color: #fff;
+  color: #fff !important;
 }
 /*-------------------------------------
 header
@@ -778,4 +778,101 @@ responsive design
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease;
   z-index: 9999;
+}
+/* =================================== */
+/* B. HAMBURGER & MENU MOBILE */
+/* =================================== */
+
+.hamburger {
+    display: none; /* Sembunyikan tombol hamburger di desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+	margin-left: 50px;
+    z-index: 1000000001; 
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color, #333);
+    transition: all 0.3s ease-in-out;
+}
+
+body.dark-theme .hamburger .bar {
+    background-color: white;
+}
+
+/* Menyembunyikan link mobile secara default */
+.mobile-link {
+    display: none; 
+}
+
+/* Animasi Hamburger ke X */
+nav.active .bar:nth-child(2) {
+    opacity: 0;
+}
+nav.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+nav.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menu Mobile (Sidebar) Aktif */
+nav.active .mobile-link {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width:50%; 
+    height: 90%;
+    background-color: var(--header-background, white);
+    padding: 80px 20px 20px;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999999;
+}
+
+nav.active .mobile-link li {
+    margin: 15px 0;
+    text-align: left;
+    list-style: none; /* Hilangkan bullet point jika ada */
+}
+
+nav.active .mobile-link a {
+    color: var(--text-color, #333);
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+}
+
+/* Dark Theme Mobile Menu */
+body.dark-theme nav.active .mobile-link {
+    background-color: var(--dark-header-background, #1a1a1a);
+}
+body.dark-theme nav.active .mobile-link a {
+    color: white;
+}
+
+/* =================================== */
+/* C. MEDIA QUERY (KHUSUS MOBILE) */
+/* =================================== */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Tampilkan hamburger di mobile */
+    }
+
+    .link, .desktop-cv {
+        display: none; /* Sembunyikan menu desktop dan tombol CV desktop */
+    }
+
+    nav {
+        /* Sesuaikan tata letak navbar di mobile */
+        padding-right: 5%; 
+    }
 }

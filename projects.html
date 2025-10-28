@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio Projects</title>
+    <link rel="stylesheet" type="text/css" href="asset/css/index.css">
+    <link rel="stylesheet" type="text/css" href="asset/css/projects.css">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+    </head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Nahdevl</div>
+            
+            
+            <ul class="link">
+                <li><a href="index.html#rewards">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="#projects-grid">Portfolio</a></li> 
+                <li><a href="index.html#reviews">Testimonial</a></li>
+            </ul>
+            
+            <ul class="mobile-link">
+                <li><a href="index.html#">Home</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a class="cv" href="https://drive.google.com/file/d/1Lna_iNaJOVzFS5K19kIP1yCjkQVYmnQJ/view?usp=sharing">Download CV</a></li>
+            </ul>
+            
+            <a class="cv desktop-cv" href="https://drive.google.com/file/d/1Lna_iNaJOVzFS5K19kIP1yCjkQVYmnQJ/view?usp=sharing">Download CV</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="toggle-icon">🌙</span>
+                <span class="toggle-text">Dark</span>
+            </button>
+            <button class="hamburger" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="all-projects" style="padding-top: 120px; text-align: center;">
+            <div class="welcome" >
+                <h3>Semua <span>Proyek</span> Saya</h3>
+                <p>Lihat secara mendalam semua karya kreatif yang telah saya selesaikan.</p>
+            </div>
+            
+            <div class="portfolio-grid" id="projects-grid">
+                <div class="project-card fade-scale">
+                    <div class="project-image" style="background-image: url('asset/img/ecommerce.jpg');"></div>
+                    <h4>Website E-Commerce Modern</h4>
+                    <p>Full-stack development untuk platform e-commerce dengan fitur pembayaran dan inventaris.</p>
+                    <a href="project-detail.html?id=ecommerce" class="project-link">Lihat Detail</a>
+                </div>
+                <div class="project-card fade-scale">
+                    <div class="project-image" style="background-image: url('asset/img/landing-page.jpg');"></div>
+                    <h4>Landing Page Perusahaan SaaS</h4>
+                    <p>Desain dan implementasi landing page yang berfokus pada konversi untuk layanan perangkat lunak.</p>
+                    <a href="project-detail.html?id=landing-saas" class="project-link">Lihat Detail</a>
+                </div>
+                <div class="project-card fade-scale">
+                    <div class="project-image" style="background-image: url('asset/img/visualization-data.jpg');"></div>
+                    <h4>Sistem Otomatisasi Data</h4>
+                    <p>Membangun skrip Python untuk otomatisasi pengumpulan dan visualisasi data.</p>
+                    <a href="project-detail.html?id=visualization-data" class="project-link">Lihat Detail</a>
+                </div>
+                <div class="project-card fade-scale">
+                    <div class="project-image" style="background-image: url('asset/img/time-management.jpg');"></div>
+                    <h4>Aplikasi Mobile Berbasis Web (PWA)</h4>
+                    <p>Mengembangkan Progressive Web App untuk manajemen tugas tim kecil.</p>
+                    <a href="project-detail.html?id=time-management" class="project-link">Lihat Detail</a>
+                </div>
+                </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <h4>@2023 All Right Reserved</h4>
+        <h4>Designed by Nahdevl</h4>
+        <div class="sosmed">
+            </div>
+    </footer>
+    
+    <div class="custom-cursor"></div>
+    <script src="asset/js/projects.js"></script>
+</body>
+</html>

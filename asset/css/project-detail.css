@@ -1,0 +1,200 @@
+/* project-detail.css */
+
+/* --- VARIABEL TEMA (Untuk memastikan konsistensi) --- */
+/* Disarankan variabel ini DITAMBAHKAN di base.css */
+/* Namun, jika Anda belum membuat base.css, tambahkan ini di sini sementara */
+/* Jika sudah ada base.css, hapus bagian ini */
+:root {
+    --primary-color: #333;
+    --secondary-text: #555;
+    --card-background: #f1f1f1;
+    --text-color: #333;
+    
+    --dark-primary-color: #f1f1f1;
+    --dark-secondary-text: #ccc;
+    --dark-card-background: #2a2a2a;
+    --dark-text-color: white;
+}
+/* END TEMPORARY VARIABLES */
+
+
+#project-detail {
+    padding-top: 100px; /* Jaga jarak dari sticky header */
+    padding-bottom: 80px;
+    display: flex; /* Untuk memposisikan tombol kembali di tengah bawah */
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+    width: 100%;
+}
+
+.breadcrumb {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+.breadcrumb a {
+    color: #0DB760;
+    text-decoration: none;
+}
+
+.project-title {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+/* Info Bar (Klien, Layanan, Teknologi) */
+.project-info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.project-info-bar div {
+    flex: 1;
+    min-width: 120px;
+    margin: 10px 0;
+}
+
+.project-info-bar h4 {
+    font-size: 0.85em;
+    color: #0DB760;
+    margin-bottom: 5px;
+}
+
+.project-info-bar p {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.live-demo-btn {
+    background-color: #0DB760;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.live-demo-btn:hover {
+    background-color: #098e4d;
+}
+
+/* Gambar Utama */
+.main-media img, .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Konten Proyek (Deskripsi dan Tantangan) */
+.project-content {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.description-section, .challenge-solution {
+    flex: 1;
+    min-width: 45%;
+}
+
+.project-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.project-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--secondary-text);
+}
+
+.challenge-solution .point {
+    margin-bottom: 25px;
+}
+
+.challenge-solution h3 {
+    color: #0DB760;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+/* Tombol Kembali */
+.back-to-projects {
+    display: inline-block;
+    margin-top: 30px;
+    color: #0DB760;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+/* --- RESPONSIVITAS DETAIL PROYEK --- */
+
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 2em;
+    }
+    
+    .project-info-bar {
+        /* Susun informasi bar menjadi dua kolom atau blok vertikal */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .project-info-bar div {
+        margin: 0;
+    }
+    
+    .live-demo-btn {
+        grid-column: 1 / -1; /* Tombol ambil lebar penuh */
+        text-align: center;
+    }
+
+    .project-content {
+        flex-direction: column; /* Ubah deskripsi dan solusi menjadi tumpukan */
+        gap: 30px;
+    }
+}
+@media (max-width: 600px) {
+    .detail-container {
+        padding: 0 20px;
+    }
+    #project-detail {
+        padding-top: 80px;
+    }
+}
+
+
+/* --- DARK THEME DETAIL PROYEK --- */
+
+body.dark-theme .project-info-bar {
+    background-color: var(--dark-card-background);
+}
+body.dark-theme .project-title {
+    color: var(--dark-primary-color);
+}
+body.dark-theme .project-content h2 {
+    color: var(--dark-primary-color);
+}
+body.dark-theme .breadcrumb, body.dark-theme .project-content p {
+    color: var(--dark-secondary-text);
+}

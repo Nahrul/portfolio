@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>portfolio</title>
-	<link rel="stylesheet" type="text/css" href="asset/index.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/index.css">
 	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 </head>
@@ -13,18 +13,27 @@
 		<nav>
 			<div class="logo">Nahdevl</div>
 			<ul class="link">
-				<li><a href="#rewards">About</a></li>
 				<li><a href="#skills">Skills</a></li>
-				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="projects.html">Projects</a></li>
 				<li><a href="#reviews">Testimonial</a></li>
+			</ul>
+			<ul class="mobile-link">
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a class="cv" href="https://drive.google.com/file/d/1Lna_iNaJOVzFS5K19kIP1yCjkQVYmnQJ/view?usp=sharing">Download CV</a></li>
 			</ul>
 			<a class="cv" href="https://drive.google.com/file/d/1Lna_iNaJOVzFS5K19kIP1yCjkQVYmnQJ/view?usp=sharing">Download CV</a>
 			<!-- Tambahkan di dalam <nav> -->
-			<!-- Ganti tombol lama dengan ini di dalam <nav> -->
-			<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-			<span class="toggle-icon">🌙</span>
-			<span class="toggle-text">Dark Mode</span>
-			</button>
+				<!-- Ganti tombol lama dengan ini di dalam <nav> -->
+					<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+						<span class="toggle-icon">🌙</span>
+						<span class="toggle-text">Dark</span>
+					</button>
+					<button class="hamburger" aria-label="Toggle Menu">
+						<span class="bar"></span>
+						<span class="bar"></span>
+						<span class="bar"></span>
+					</button>
 		</nav>
 		<section id="jumbotron">
 			<div class="welcome">
@@ -89,7 +98,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="portfolio">
+		<!-- <section id="portfolio">
 			<div class="welcome fade-left" >
 				<h3>My Creative Works Latest <span>Projects</span></h3>
 				<p>I have selected and mentioned here some of my latest projects to share with you</p>
@@ -99,7 +108,7 @@
 				<div class="portfolio1 fade-scale"></div>
 				<div class="portfolio2 fade-scale"></div>
 			</div>
-		</section>
+		</section> -->
 		<section id="reviews">
 			<div class="welcome fade-up">
 				<h3>Our Customers Say Something <span>About Us</span></h3>
@@ -267,40 +276,6 @@
 	</footer>
 	<div class="custom-cursor"></div>
 	<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
-	<script src="script.js"></script>
-
-	<script>
-	const themeToggle = document.getElementById('theme-toggle');
-	const toggleIcon = themeToggle.querySelector('.toggle-icon');
-	const toggleText = themeToggle.querySelector('.toggle-text');
-
-	themeToggle.addEventListener('click', function() {
-	document.body.classList.toggle('dark-theme');
-	const dark = document.body.classList.contains('dark-theme');
-	toggleIcon.textContent = dark ? '☀️' : '🌙';
-	toggleText.textContent = dark ? 'Light Mode' : 'Dark Mode';
-	});
-	new Typed('#typed', {
-		strings: ['Programming', 'Design', 'Development', 'UI/UX', 'Database'],
-		typeSpeed: 90,
-		backSpeed: 70,
-		backDelay: 2000,
-		loop: true
-	});
-
-	  function whatsapp() {
-	  	var fullname = document.getElementById('fullname').value;
-	  	var email = document.getElementById('email').value;
-	  	var number = document.getElementById('number').value;
-	  	var budget = document.getElementById('budget').value;
-	  	var message = document.getElementById('message').value;
-
-	  	console.log(fullname,email,number,budget,message);
-	  	var link = `https://wa.me/6283130325742?text=Nama:${fullname}%0A%0AEmail:${email}%0A%0ANumber:${number}%0A%0ABudget:${budget}%0A%0A${message}`.replace(/ /g, '+').replace(/\n/g, '%0A');
-	  	// link.replace(/ /g, '+');
-	  	window.location = link;
-	  	console.log(link)
-	  }
-	</script>
+	<script src="asset/js/script.js"></script>
 </body>
 </html>

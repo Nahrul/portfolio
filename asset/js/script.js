@@ -126,3 +126,52 @@ document.addEventListener("mousemove", (e) => {
     cursor.style.top = e.clientY + "px";
   }
 });
+const themeToggle = document.getElementById('theme-toggle');
+	const toggleIcon = themeToggle.querySelector('.toggle-icon');
+	const toggleText = themeToggle.querySelector('.toggle-text');
+
+	themeToggle.addEventListener('click', function() {
+	document.body.classList.toggle('dark-theme');
+	const dark = document.body.classList.contains('dark-theme');
+	toggleIcon.textContent = dark ? '☀️' : '🌙';
+	toggleText.textContent = dark ? 'Light' : 'Dark';
+	});
+	new Typed('#typed', {
+		strings: ['Programming', 'Design', 'Development', 'UI/UX', 'Database'],
+		typeSpeed: 90,
+		backSpeed: 70,
+		backDelay: 2000,
+		loop: true
+	});
+
+	  function whatsapp() {
+	  	var fullname = document.getElementById('fullname').value;
+	  	var email = document.getElementById('email').value;
+	  	var number = document.getElementById('number').value;
+	  	var budget = document.getElementById('budget').value;
+	  	var message = document.getElementById('message').value;
+
+	  	console.log(fullname,email,number,budget,message);
+	  	var link = `https://wa.me/6283130325742?text=Nama:${fullname}%0A%0AEmail:${email}%0A%0ANumber:${number}%0A%0ABudget:${budget}%0A%0A${message}`.replace(/ /g, '+').replace(/\n/g, '%0A');
+	  	// link.replace(/ /g, '+');
+	  	window.location = link;
+	  	console.log(link)
+	  }
+	  // SKRIP UNTUK MOBILE NAVBAR
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const mobileLinks = document.querySelectorAll('.mobile-link a'); 
+
+        hamburger.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+
+        // Tutup menu saat tautan diklik 
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Hapus kelas aktif hanya jika tautan mengarah ke ID di halaman yang sama
+                if (link.getAttribute('href').startsWith('#')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
