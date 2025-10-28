@@ -91,7 +91,7 @@ function loadProjectDetail() {
         <div><h4>Layanan</h4><p>${project.service}</p></div>
         <div><h4>Teknologi</h4><p>${project.tech}</p></div>
         <div><h4>Tahun</h4><p>${project.year}</p></div>
-        <a href="${project.demoUrl}" target="_blank" class="live-demo-btn">Lihat Demo Langsung</a>
+        <a href="${project.demoUrl}" target="_blank" class="live-demo-btn" style="pointer-events:none;cursor:default; background-color:#424342;">Demo Belum Tersedia</a>
     `;
 
     // 4. Mengisi Media Utama

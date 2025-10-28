@@ -1,9 +1,4 @@
 /* project-detail.css */
-
-/* --- VARIABEL TEMA (Untuk memastikan konsistensi) --- */
-/* Disarankan variabel ini DITAMBAHKAN di base.css */
-/* Namun, jika Anda belum membuat base.css, tambahkan ini di sini sementara */
-/* Jika sudah ada base.css, hapus bagian ini */
 :root {
     --primary-color: #333;
     --secondary-text: #555;
@@ -17,7 +12,9 @@
 }
 /* END TEMPORARY VARIABLES */
 
-
+main {
+    margin-top: 0;
+}
 #project-detail {
     padding-top: 100px; /* Jaga jarak dari sticky header */
     padding-bottom: 80px;

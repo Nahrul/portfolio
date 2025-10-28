@@ -1,7 +1,10 @@
 /* =================================== */
-/* D. CSS UNTUK BAGIAN PROYEK */
+/* CSS UNTUK BAGIAN PROYEK */
 /* =================================== */
 
+main {
+    margin-top: 0;
+}
 #portfolio, #all-projects {
     display: flex;
     flex-direction: column;

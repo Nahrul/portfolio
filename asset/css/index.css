@@ -129,7 +129,7 @@ header section#jumbotron{
 
 header section#jumbotron::before{
 	content: '';
-	background-image: url('./img/Design.png');
+	background-image: url('../img/Design.png');
 	position: absolute;
 	width: 500px;
 	height: 503px;
@@ -185,7 +185,7 @@ header section#jumbotron .image::before{
 	height: 300px;
 	bottom: 0;
 	position: absolute;
-	background-image: url('./img/portfolio.png');
+	background-image: url('../img/portfolio.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
