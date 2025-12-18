@@ -1,0 +1,482 @@
+<?php
+/**
+ * Portfolio Public Index
+ * Halaman utama portfolio
+ */
+require_once 'config/db.php';
+
+// Get latest projects
+$projects = [];
+try {
+    $stmt = $conn->prepare("SELECT * FROM projects ORDER BY created_at DESC LIMIT 3");
+    $stmt->execute();
+    $projects = $stmt->fetchAll();
+} catch (PDOException $e) {
+    // Error handling
+}
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="asset/index.css">
+    <link rel="stylesheet" href="/portfolio/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        body {
+            background: white;
+            color: #000;
+        }
+        
+        .projects-grid-homepage {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 5px;
+            margin-left: auto;
+            z-index: 1001;
+            position: relative;
+            pointer-events: auto;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        header nav {
+            background: white;
+        }
+        
+        body.dark-theme header nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        body.dark-theme .hamburger span {
+            background-color: white;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid-homepage {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+                gap: 20px;
+            }
+            
+            .hamburger {
+                display: flex;
+                order: 10;
+            }
+            
+            nav {
+                position: relative;
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+            
+            nav .logo {
+                margin-right: auto;
+            }
+            
+            nav .cv {
+                display: none;
+            }
+            
+            .theme-toggle {
+                display: none;
+            }
+
+            /* Show theme toggle in mobile menu */
+            .mobile-theme-toggle {
+                display: block;
+                text-align: center;
+                padding: 15px 0;
+                background: rgba(0,0,0,0.2);
+                margin-top: 10px;
+            }
+        }
+        
+        .mobile-theme-toggle button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nahdevl</div>
+            <ul class="link" id="navLinks">
+                <li><a href="#rewards">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="/portfolio/project.php">All Projects</a></li>
+                <li><a href="#reviews">Testimonial</a></li>
+            </ul>
+            <a class="cv" href="https://drive.google.com/file/d/1Lna_iNaJOVzFS5K19kIP1yCjkQVYmnQJ/view?usp=sharing">Download CV</a>
+            <a class="cv" href="/portfolio/admin/login.php">Admin</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="toggle-icon">🌙</span>
+                <span class="toggle-text">Dark Mode</span>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        
+        <section id="jumbotron">
+            <div class="welcome">
+                <h3>I Have <span id="typed"></span> Experience</h3>
+                <p>I'm Nahdevl, a fullstack developer for website businesses, portfolio, marketplace and landing page</p>
+                <button><a href="https://wa.me/6283130325742">Contact Me</a></button>
+            </div>
+            <div class="image"></div>
+        </section>
+    </header>
+    
+    <main>
+        <section id="rewards">
+            <div>
+                <h3>80+</h3>
+                <p>Satisfied Clients</p>
+            </div>
+            <div>
+                <h3>200+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div>
+                <h3>99+</h3>
+                <p>Review Given</p>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <div class="welcome">
+                <h3>Why Hire Me For Your Next <span>Project?</span></h3>
+                <p>I'm specialist in Fullstack web developer. My passion is created web & solving problems in code</p>
+                <button><a href="https://wa.me/6283130325742">Hire Me</a></button>
+            </div>
+            <div class="skills fade-right">
+                <div class="fade-left">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="diamond-outline (2) 1">
+                            <path id="Vector" d="M2.625 9.625H25.375M1.93703 10.2927L13.2984 25.0288C13.3809 25.1365 13.4872 25.2237 13.6088 25.2837C13.7305 25.3437 13.8643 25.3749 14 25.3749C14.1357 25.3749 14.2695 25.3437 14.3912 25.2837C14.5128 25.2237 14.6191 25.1365 14.7016 25.0288L26.063 10.2927C26.1747 10.1473 26.2395 9.97129 26.2488 9.78814C26.258 9.60498 26.2114 9.42333 26.1149 9.26734L22.2611 3.04664C22.1818 2.91791 22.0708 2.81159 21.9388 2.73779C21.8068 2.664 21.6582 2.62517 21.507 2.625H6.49305C6.34183 2.62517 6.19316 2.664 6.06117 2.73779C5.92918 2.81159 5.81824 2.91791 5.73891 3.04664L1.88508 9.26734C1.78864 9.42333 1.74196 9.60498 1.75124 9.78814C1.76052 9.97129 1.82532 10.1473 1.93703 10.2927V10.2927Z" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path id="Vector_2" d="M21.875 3.5L19.25 9.625L14 2.625M6.125 3.5L8.75 9.625L14 2.625M14 24.5L8.75 9.625M14 24.5L19.25 9.625" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                    <h3>Front-End Developer</h3>
+                    <p>create website for user use modern framework or pure css</p>
+                </div>
+                <div class="right fade-up">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="pulse-outline 1">
+                            <path id="Vector" d="M2.625 17.5H6.125L9.625 3.5L13.125 24.5L16.625 12.25L18.375 17.5H21.875" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path id="Vector_2" d="M23.625 19.25C24.5915 19.25 25.375 18.4665 25.375 17.5C25.375 16.5335 24.5915 15.75 23.625 15.75C22.6585 15.75 21.875 16.5335 21.875 17.5C21.875 18.4665 22.6585 19.25 23.625 19.25Z" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                    <h3>Back-End Developer</h3>
+                    <p>Iam create the website use logic and clean code structure</p>
+                </div>
+                <div class="fade-right">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="school-outline 1">
+                            <path id="Vector" d="M1.75 10.5L14 3.5L26.25 10.5L14 17.5L1.75 10.5Z" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path id="Vector_2" d="M6.125 13.125V20.125L14 24.5L21.875 20.125V13.125M26.25 20.125V10.5M14 17.5V24.5" stroke="#0DB760" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                    <h3>Automation</h3>
+                    <p>I create automation for data scienties and testing website</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="portfolio">
+            <div class="welcome fade-left">
+                <h3>My Creative Works Latest <span>Projects</span></h3>
+                <p>I have selected and mentioned here some of my latest projects from database</p>
+                <button><a href="/portfolio/project.php">View All Projects</a></button>
+            </div>
+            <div class="projects-grid-homepage">
+                <?php if (!empty($projects)): ?>
+                    <?php foreach ($projects as $project): ?>
+                        <div class="project-card fade-scale" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div class="project-image" style="width: 100%; height: 200px; overflow: hidden; background: #f5f5f5;">
+                                <img src="<?php echo htmlspecialchars($project['image_url']); ?>" 
+                                     alt="<?php echo htmlspecialchars($project['title']); ?>"
+                                     style="width: 100%; height: 100%; object-fit: cover;"
+                                     onerror="this.src='https://via.placeholder.com/300x200?text=Project'">
+                            </div>
+                            <div class="project-content" style="padding: 20px;">
+                                <h3 style="margin-bottom: 10px; color: #333;"><?php echo htmlspecialchars($project['title']); ?></h3>
+                                <p style="color: #666; margin-bottom: 15px;"><?php echo htmlspecialchars(substr($project['description'], 0, 80)); ?>...</p>
+                                <a href="/portfolio/project-detail.php?id=<?php echo $project['id']; ?>" 
+                                   class="btn btn-primary"
+                                   style="background: #0DB760; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; display: inline-block;">
+                                    View Detail →
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </section>
+        
+        <section id="reviews">
+            <div class="welcome fade-up">
+                <h3>Our Customers Say Something <span>About Us</span></h3>
+            </div>
+            <div class="reviews">
+                <div class="review1 fade-left">
+                    <div class="star">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                    </div>
+                    <p>We will also facilitate the business marketing of these products with our SEO experts so that they become a ready to use website & help sell product from company</p>
+                    <div class="profile">
+                        <div class="img"></div>
+                        <div class="bio">
+                            <h3>Ammir Uddin</h3>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review1 fade-left">
+                    <div class="star">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                    </div>
+                    <p>We will also facilitate the business marketing of these products with our SEO experts so that they become a ready to use website & help sell product from company</p>
+                    <div class="profile">
+                        <div class="img"></div>
+                        <div class="bio">
+                            <h3>Wahyu</h3>
+                            <p>data scienties</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review1 fade-left">
+                    <div class="star">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                        <img src="./asset/icon/Star.png">
+                    </div>
+                    <p>We will also facilitate the business marketing of these products with our SEO experts so that they become a ready to use website & help sell product from company</p>
+                    <div class="profile">
+                        <div class="img"></div>
+                        <div class="bio">
+                            <h3>Nurrisky</h3>
+                            <p>Programmer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="welcome fade-down">
+                <h3>Let's Discuss Your <span>Project</span></h3>
+                <p>Let's Make something new, different and more maningful or make thing more visual or conceptual</p>
+            </div>
+            <div class="contact">
+                <div class="contact-info fade-left">
+                    <div class="c-info">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                <path d="M2.625 7.875C2.625 17.5397 10.4603 25.375 20.125 25.375H22.75C23.4462 25.375 24.1139 25.0984 24.6062 24.6062C25.0984 24.1139 25.375 23.4462 25.375 22.75V21.1493C25.375 20.5473 24.9655 20.0223 24.381 19.8765L19.2208 18.5862C18.7075 18.4578 18.1685 18.6503 17.8523 19.0727L16.7207 20.5812C16.3917 21.0198 15.8235 21.2135 15.309 21.0245C13.399 20.3223 11.6645 19.2134 10.2256 17.7744C8.78665 16.3355 7.67769 14.601 6.9755 12.691C6.7865 12.1765 6.98017 11.6083 7.41883 11.2793L8.92733 10.1477C9.35083 9.8315 9.54217 9.29133 9.41383 8.77917L8.1235 3.619C8.05249 3.33514 7.88867 3.08315 7.65806 2.90306C7.42745 2.72297 7.14327 2.6251 6.85067 2.625H5.25C4.55381 2.625 3.88613 2.90156 3.39384 3.39384C2.90156 3.88613 2.625 4.55381 2.625 5.25V7.875Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="info">
+                            <h4>Call me</h4>
+                            <p>+6283130325742</p>
+                        </div>
+                    </div>
+                    <div class="c-info">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                <path d="M25.375 7.875V20.125C25.375 20.8212 25.0984 21.4889 24.6062 21.9812C24.1139 22.4734 23.4462 22.75 22.75 22.75H5.25C4.55381 22.75 3.88613 22.4734 3.39384 21.9812C2.90156 21.4889 2.625 20.8212 2.625 20.125V7.875M25.375 7.875C25.375 7.17881 25.0984 6.51113 24.6062 6.01884C24.1139 5.52656 23.4462 5.25 22.75 5.25H5.25C4.55381 5.25 3.88613 5.52656 3.39384 6.01884C2.90156 6.51113 2.625 7.17881 2.625 7.875M25.375 7.875V8.1585C25.375 8.60667 25.2604 9.04739 25.0418 9.43868C24.8233 9.82997 24.5083 10.1588 24.1267 10.3938L15.3767 15.778C14.9627 16.033 14.4861 16.168 14 16.168C13.5139 16.168 13.0373 16.033 12.6233 15.778L3.87333 10.395C3.49174 10.16 3.17668 9.83113 2.95816 9.43985C2.73965 9.04856 2.62495 8.60784 2.625 8.15967V7.875" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="info">
+                            <h4>Email me</h4>
+                            <p>tebo0235@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="c-info">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                <path d="M17.5 12.25C17.5 13.1783 17.1313 14.0685 16.4749 14.7249C15.8185 15.3813 14.9283 15.75 14 15.75C13.0717 15.75 12.1815 15.3813 11.5251 14.7249C10.8687 14.0685 10.5 13.1783 10.5 12.25C10.5 11.3217 10.8687 10.4315 11.5251 9.77513C12.1815 9.11875 13.0717 8.75 14 8.75C14.9283 8.75 15.8185 9.11875 16.4749 9.77513C17.1313 10.4315 17.5 11.3217 17.5 12.25V12.25Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22.75 12.25C22.75 20.5823 14 25.375 14 25.375C14 25.375 5.25 20.5823 5.25 12.25C5.25 9.92936 6.17187 7.70376 7.81282 6.06282C9.45376 4.42187 11.6794 3.5 14 3.5C16.3206 3.5 18.5462 4.42187 20.1872 6.06282C21.8281 7.70376 22.75 9.92936 22.75 12.25V12.25Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="info">
+                            <h4>Adress</h4>
+                            <p>Indonesia, west Java</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-input fade-right">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="fullname" placeholder="Full name">
+                            <input type="email" id="email" placeholder="Your email">
+                        </div>
+                        <div class="col">
+                            <input type="number" id="number" placeholder="Phone number">
+                            <input type="number" id="budget" placeholder="Budget">
+                        </div>
+                    </div>
+                    <textarea type="text" id="message" placeholder="Message"></textarea>
+                </div>
+            </div>
+            <button class="fade-up" onclick="whatsapp()">Submit Message</button>
+        </section>
+    </main>
+    
+    <footer>
+        <h4>@2024 All Right Reserved</h4>
+        <h4>Designed by Nahdevl</h4>
+        <div class="sosmed">
+            <div class="icon">
+                <a href="https://www.facebook.com/nahrul.hayat.9421">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9 1.00012H7.5C6.83696 1.00012 6.20107 1.26351 5.73223 1.73236C5.26339 2.2012 5 2.83708 5 3.50012V5.00012H3.5V7.00012H5V11.0001H7V7.00012H8.5L9 5.00012H7V3.50012C7 3.36751 7.05268 3.24034 7.14645 3.14657C7.24021 3.0528 7.36739 3.00012 7.5 3.00012H9V1.00012Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M11.5 1.49917C11.0212 1.83691 10.4911 2.09522 9.93 2.26417C9.62887 1.91792 9.22867 1.67251 8.78352 1.56113C8.33837 1.44975 7.86975 1.47777 7.44104 1.6414C7.01233 1.80502 6.64422 2.09637 6.38649 2.47603C6.12876 2.85568 5.99385 3.30534 6 3.76417V4.26417C5.12132 4.28695 4.25064 4.09207 3.4655 3.69689C2.68037 3.30171 2.00516 2.71849 1.5 1.99917C1.5 1.99917 -0.5 6.49917 4 8.49917C2.97026 9.19815 1.74358 9.54863 0.5 9.49917C5 11.9992 10.5 9.49917 10.5 3.74917C10.4995 3.6099 10.4861 3.47097 10.46 3.33417C10.9703 2.83092 11.3304 2.19552 11.5 1.49917Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="https://www.linkedin.com/in/nahrul-hayat-76b60a28b">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M7.99982 4C8.79547 4 9.55853 4.31607 10.1211 4.87868C10.6837 5.44129 10.9998 6.20435 10.9998 7V10.5H8.99982V7C8.99982 6.73478 8.89446 6.48043 8.70692 6.29289C8.51939 6.10536 8.26503 6 7.99982 6C7.7346 6 7.48025 6.10536 7.29271 6.29289C7.10517 6.48043 6.99982 6.73478 6.99982 7V10.5H4.99982V7C4.99982 6.20435 5.31589 5.44129 5.8785 4.87868C6.44111 4.31607 7.20417 4 7.99982 4Z" fill="white"/>
+                        <path d="M3 4.5H1V10.5H3V4.5Z" fill="white"/>
+                        <path d="M2 3.00012C2.55228 3.00012 3 2.55241 3 2.00012C3 1.44784 2.55228 1.00012 2 1.00012C1.44772 1.00012 1 1.44784 1 2.00012C1 2.55241 1.44772 3.00012 2 3.00012Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="https://www.instagram.com/nahdevl.io">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <g clip-path="url(#clip0_205_286)">
+                            <path d="M8.5 1.00012H3.5C2.11929 1.00012 1 2.11941 1 3.50012V8.50012C1 9.88083 2.11929 11.0001 3.5 11.0001H8.5C9.88071 11.0001 11 9.88083 11 8.50012V3.50012C11 2.11941 9.88071 1.00012 8.5 1.00012Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.9979 5.68503C8.05961 6.10115 7.98853 6.52614 7.79478 6.89954C7.60103 7.27294 7.29447 7.57573 6.91871 7.76487C6.54295 7.954 6.11712 8.01983 5.70179 7.95299C5.28646 7.88616 4.90278 7.69007 4.60532 7.39261C4.30786 7.09515 4.11177 6.71147 4.04493 6.29614C3.9781 5.8808 4.04393 5.45498 4.23306 5.07922C4.42219 4.70346 4.72499 4.3969 5.09839 4.20315C5.47179 4.0094 5.89678 3.93832 6.3129 4.00003C6.73736 4.06297 7.13033 4.26076 7.43375 4.56418C7.73717 4.8676 7.93496 5.26057 7.9979 5.68503Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.75 3.25012H8.755" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_205_286">
+                                <rect width="12" height="12" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="custom-cursor"></div>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const toggleIcon = themeToggle.querySelector('.toggle-icon');
+        const toggleText = themeToggle.querySelector('.toggle-text');
+        
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when link clicked
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            const dark = document.body.classList.contains('dark-theme');
+            toggleIcon.textContent = dark ? '☀️' : '🌙';
+            toggleText.textContent = dark ? 'Light Mode' : 'Dark Mode';
+        });
+        
+        new Typed('#typed', {
+            strings: ['Programming', 'Design', 'Development', 'UI/UX', 'Database'],
+            typeSpeed: 90,
+            backSpeed: 70,
+            backDelay: 2000,
+            loop: true
+        });
+        
+        function whatsapp() {
+            var fullname = document.getElementById('fullname').value;
+            var email = document.getElementById('email').value;
+            var number = document.getElementById('number').value;
+            var budget = document.getElementById('budget').value;
+            var message = document.getElementById('message').value;
+            
+            console.log(fullname, email, number, budget, message);
+            var link = `https://wa.me/6283130325742?text=Nama:${fullname}%0A%0AEmail:${email}%0A%0ANumber:${number}%0A%0ABudget:${budget}%0A%0A${message}`.replace(/ /g, '+').replace(/\n/g, '%0A');
+            window.location = link;
+        }
+    </script>
+</body>
+</html>
