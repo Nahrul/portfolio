@@ -187,6 +187,13 @@ main {
     #project-detail {
         padding-top: 80px;
     }
+    .main-media{
+        grid-template-areas: "a a a"
+                            "a a a"
+                            "b b c";
+        grid-gap: 20px;
+        margin-bottom: 50px;
+    }
 }
 
 
