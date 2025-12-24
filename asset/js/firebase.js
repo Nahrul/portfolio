@@ -15,9 +15,11 @@ import {
   deleteDoc,
   doc,
   getDocs,
+  getDoc,
   serverTimestamp,
   query,
   orderBy,
+  where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 // TODO: fill with your Firebase web app config from the Firebase console.
 const firebaseConfig = {
@@ -53,4 +55,8 @@ export {
   doc,
   getDocs,
   serverTimestamp,
+  collection,
+  query,
+  where,
+  getDoc
 };

@@ -1,62 +1,5 @@
-const projectData = {
-    'ecommerce': {
-        title: "Website E-Commerce Modern",
-        client: "PT. Teknologi Maju",
-        service: "Full-Stack Development, UI/UX Redesign",
-        tech: "React, Node.js, PostgreSQL",
-        year: "2023",
-        demoUrl: "https://demo.ecommerce.com",
-        heroImage: "asset/img/ecommerce.jpg",
-        description: "Proyek ini melibatkan perancangan ulang penuh pada platform e-commerce lama klien untuk meningkatkan pengalaman pengguna (UX) dan kecepatan transaksi...",
-        challenges: [
-            { title: "Skalabilitas Lambat", solution: "Migrasi database ke PostgreSQL dan implementasi Redis caching, meningkatkan throughput 400%." },
-            { title: "Checkout yang Rumit", solution: "Perampingan proses checkout menjadi 3 langkah sederhana dengan validasi real-time, mengurangi tingkat drop-off menjadi 25%." }
-        ]
-    },
-    'landing-saas': {
-        title: "Landing Page Perusahaan SaaS",
-        client: "Startup Inovasi Cepat",
-        service: "Web Design, Front-End Development",
-        tech: "HTML, Tailwind CSS, Alpine.js",
-        year: "2024",
-        demoUrl: "https://demo.saas-page.com",
-        heroImage: "asset/img/landing-page.jpg",
-        description: "Membangun landing page berkinerja tinggi yang dioptimalkan untuk SEO dan konversi. Fokus pada kejelasan pesan dan *Call-to-Action* yang kuat.",
-        challenges: [
-            { title: "Kecepatan Loading Buruk", solution: "Mengoptimalkan gambar dan aset menggunakan format WebP dan defer loading, mencapai skor Lighthouse 98+." },
-            { title: "Desain Kaku", solution: "Menerapkan kerangka kerja Tailwind CSS untuk mencapai fleksibilitas dan desain yang modern." }
-        ]
-    },
-    'time-management': {
-        title: "Aplikasi Manajemen Waktu",
-        client: "Freelancer",
-        service: "Mobile App Development",
-        tech: "React Native, Firebase",
-        year: "2024",
-        demoUrl: "https://demo.saas-page.com",
-        heroImage: "asset/img/time-management.jpg",
-        description: "Membangun aplikasi manajemen waktu yang membantu pengguna mengatur tugas dan jadwal mereka dengan lebih efisien.",
-        challenges: [
-            { title: "Tugas yang Terlupakan", solution: "Menerapkan pengingat berbasis lokasi dan waktu menggunakan Firebase Cloud Messaging." },
-            { title: "Antarmuka yang Tidak Intuitif", solution: "Melakukan pengujian pengguna dan iterasi desain untuk meningkatkan pengalaman pengguna." }
-        ]
-    },
-    'visualization-data': {
-        title: "Aplikasi Visualisasi Data",
-        client: "perusahaan Analitik Data",
-        service: "Automasi Data, Visualisasi",
-        tech: "React Native, Firebase, python, sckylarn, matplotlib",
-        year: "2024",
-        demoUrl: "https://demo.saas-page.com",
-        heroImage: "asset/img/visualization-data.jpg",
-        description: "Membangun aplikasi visualisasi data yang membantu pengguna memahami dan menganalisis data dengan lebih baik.",
-        challenges: [
-            { title: "Tantangan Data yang Besar", solution: "Menerapkan teknik pengolahan data yang efisien menggunakan Python dan pustaka terkait." },
-            { title: "Cleaning Data yang Tidak Konsisten", solution: "Menggunakan pustaka Pandas untuk membersihkan dan memformat data sebelum analisis." }
-        ]
-    },
-    // Tambahkan objek proyek lainnya di sini sesuai ID di projects.html
-};
+import { db, doc, getDoc } from "./firebase.js";
+
 
 // Fungsi untuk mendapatkan parameter dari URL
 function getQueryParam(param) {
@@ -65,12 +8,12 @@ function getQueryParam(param) {
 }
 
 // Fungsi utama untuk mengisi konten
-function loadProjectDetail() {
+function loadProjectDetail(data) {
+    console.log(data)
     const projectId = getQueryParam('id');
-    const project = projectData[projectId]; // Mengambil data dari project-data.js
 
     // 1. Cek apakah project ID valid
-    if (!project) {
+    if (!data) {
         document.getElementById('project-detail').innerHTML = `
             <div class="detail-container" style="text-align:center; padding: 100px 0;">
                 <h1>Proyek Tidak Ditemukan</h1>
@@ -82,45 +25,88 @@ function loadProjectDetail() {
     }
 
     // 2. Mengisi Judul dan Breadcrumb
-    document.querySelector('.project-title').textContent = project.title;
-    document.querySelector('.breadcrumb').innerHTML = `<a href="projects.html">Portfolio</a> / ${project.title}`;
+    document.querySelector('.project-title').textContent = data.title;
+    document.querySelector('.breadcrumb').innerHTML = `<a href="projects.html">Portfolio</a> / ${data.title}`;
 
     // 3. Mengisi Info Bar
+    const updatedAt = data.created_at?.toDate?.();
     document.querySelector('.project-info-bar').innerHTML = `
-        <div><h4>Klien</h4><p>${project.client}</p></div>
-        <div><h4>Layanan</h4><p>${project.service}</p></div>
-        <div><h4>Teknologi</h4><p>${project.tech}</p></div>
-        <div><h4>Tahun</h4><p>${project.year}</p></div>
-        <a href="${project.demoUrl}" target="_blank" class="live-demo-btn" style="pointer-events:none;cursor:default; background-color:#424342;">Demo Belum Tersedia</a>
+        <div><h4>Klien</h4><p>${data.client}</p></div>
+        <div><h4>Layanan</h4><p>${data.service}</p></div>
+        <div><h4>Teknologi</h4><p>${data.tech_stack}</p></div>
+        <div><h4>Diperbarui</h4><p>${updatedAt ? ` ${updatedAt.toLocaleDateString()}` : ""}</p></div>
+        <a href="${data.demoUrl}" target="_blank" class="live-demo-btn" style="pointer-events:none;cursor:default; background-color:#424342;">Demo Belum Tersedia</a>
     `;
 
     // 4. Mengisi Media Utama
     document.querySelector('.main-media').innerHTML = `
-        <img src="${project.heroImage}" alt="Gambar utama proyek ${project.title}">
+        <img style="grid-area: a;" src="${data.thumbnail_image}" alt="Gambar utama proyek ${data.title}">
+        <img style="grid-area: b;" src="${data.image1}" alt="Gambar utama proyek ${data.title}">
+        <img style="grid-area: c;" src="${data.image2_url}" alt="Gambar utama proyek ${data.title}">
     `;
 
     // 5. Mengisi Deskripsi
     document.querySelector('.description-section h2').textContent = "Tinjauan Proyek";
-    document.querySelector('.description-section p').textContent = project.description;
+    document.querySelector('.description-section p').textContent = data.description;
 
     // 6. Mengisi Tantangan & Solusi
-    const challengeContainer = document.querySelector('.challenge-solution');
-    challengeContainer.innerHTML = '<h2>Tantangan & Solusi</h2>';
+    // const challengeContainer = document.querySelector('.challenge-solution');
+    // challengeContainer.innerHTML = '<h2>Tantangan & Solusi</h2>';
     
-    project.challenges.forEach(item => {
-        challengeContainer.innerHTML += `
-            <div class="point">
-                <h3>Tantangan: ${item.title}</h3>
-                <p>Solusi: ${item.solution}</p>
-            </div>
-        `;
-    });
+    // project.challenges.forEach(item => {
+    //     challengeContainer.innerHTML += `
+    //         <div class="point">
+    //             <h3>Tantangan: ${item.title}</h3>
+    //             <p>Solusi: ${item.solution}</p>
+    //         </div>
+    //     `;
+    // });
     
     // (Anda juga bisa menambahkan logika untuk Galeri jika ada)
 }
+// async function renderProjects() {
+//   try {
+//     const snap = await getDocs(orderedProjectsQuery);
+//     if (snap.empty) {
+//       return console.log("❌ ERROR: No projects found in Firestore.");
+//     }
+//     snap.forEach((d) => {
+//       loadProjectDetail(d);
+//       console.log(d.data());
+//     });
+//   } catch (err) {
+//     return console.log(`Gagal memuat proyek: ${err.message}`);
+//   }
+// }
+async function initPage() {
+    const projectId = getQueryParam('id');
 
-// Panggil fungsi setelah semua DOM siap dimuat
-document.addEventListener('DOMContentLoaded', loadProjectDetail);
+    // Jika tidak ada ID di URL, langsung 404
+    if (!projectId) {
+        console.error("No ID provided in URL");
+        return;
+    }
+
+    try {
+        // 1. Buat referensi ke dokumen spesifik
+        const docRef = doc(db, "projects", projectId);
+        
+        // 2. Ambil data
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            // 3. Kirim data ke fungsi UI
+            console.log("Data loaded:", docSnap.data());
+            loadProjectDetail(docSnap.data());
+        } else {
+            // ID valid tapi data tidak ada di database
+            console.log("No such document!");
+        }
+    } catch (error) {
+        console.error("Error getting document:", error);
+    }
+}
+
 
 // SKRIP KHUSUS HALAMAN INI: Theme Toggle dan Mobile Navbar
         const themeToggle = document.getElementById('theme-toggle');
@@ -150,3 +136,4 @@ document.addEventListener('DOMContentLoaded', loadProjectDetail);
                 nav.classList.remove('active');
             });
         });
+initPage();

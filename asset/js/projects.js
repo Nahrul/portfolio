@@ -13,20 +13,21 @@ function techLabel(value) {
 function createCard(data) {
   const card = document.createElement("article");
   card.className = "project-card";
-  const thumb = data.thumbnail_image || "https://via.placeholder.com/640x360?text=Project";
-  const tech = techLabel(data.tech_stack);
-  const updatedAt = data.created_at?.toDate?.();
+  const thumb = data.data().thumbnail_image || "https://via.placeholder.com/640x360?text=Project";
+  const tech = techLabel(data.data().tech_stack);
+  const updatedAt = data.data().created_at?.toDate?.();
   card.innerHTML = `
     <div class="project-image">
-      <img src="${thumb}" alt="${data.title || "Project"}">
+      <img src="${thumb}" alt="${data.data().title || "Project"}">
     </div>
     <div class="project-body">
-      <h4>${data.title || "Tanpa judul"}</h4>
-      <p class="project-desc">${data.description || ""}</p>
+      <h4>${data.data().title || "Tanpa judul"}</h4>
+      
       <p class="project-tech">${tech}</p>
       <div class="project-links">
-        ${data.project_url ? `<a href="${data.project_url}" target="_blank" rel="noopener">Live</a>` : ""}
-        ${data.github_url ? `<a href="${data.github_url}" target="_blank" rel="noopener" class="ghost">Code</a>` : ""}
+        ${data.data().project_url ? `<a href="${data.data().project_url}" target="_blank" rel="noopener">Live</a>` : ""}
+        ${data.data().github_url ? `<a href="${data.data().github_url}" target="_blank" rel="noopener" class="ghost">Code</a>` : ""}
+        ${data.id ? `<a href="project-detail.html?id=${data.id}" target="_blank" rel="noopener" class="ghost">detail</a>` : ""}
       </div>
       <p class="project-date">${updatedAt ? `Diperbarui ${updatedAt.toLocaleDateString()}` : ""}</p>
     </div>`;
@@ -46,7 +47,8 @@ async function renderProjects() {
       return;
     }
     snap.forEach((d) => {
-      grid.appendChild(createCard(d.data()));
+      grid.appendChild(createCard(d));
+      console.log(d.data());
     });
   } catch (err) {
     loadingEl.textContent = `Gagal memuat proyek: ${err.message}`;

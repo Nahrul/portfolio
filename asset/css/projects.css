@@ -72,6 +72,7 @@ main {
 
 .project-desc {
     font-size: 0.95em;
+    text-align: left;
     color: var(--secondary-text, #666);
 }
 

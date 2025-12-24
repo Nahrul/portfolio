@@ -110,9 +110,13 @@ form?.addEventListener("submit", async (e) => {
     const titleInput = form.querySelector('input[name="title"]');
     const descInput = form.querySelector('textarea[name="description"]');
     const techInput = form.querySelector('input[name="tech_stack"]');
+    const clientInput = form.querySelector('input[name="client"]');
+    const serviceInput = form.querySelector('input[name="service"]');
     const projectUrlInput = form.querySelector('input[name="project_url"]');
     const githubUrlInput = form.querySelector('input[name="github_url"]');
     const thumbUrlInput = form.querySelector('input[name="thumbnail_url"]');
+    const image1Input = form.querySelector('input[name="image1"]');
+    const image2Input = form.querySelector('input[name="image2"]');
     
     console.log("Input elements found:", {
       titleInput,
@@ -127,9 +131,13 @@ form?.addEventListener("submit", async (e) => {
     const title = titleInput?.value || "";
     const description = descInput?.value || "";
     const tech_stack = techInput?.value || "";
+    const client = clientInput?.value || "";
+    const service = serviceInput?.value || "";
     const project_url = projectUrlInput?.value || "";
     const github_url = githubUrlInput?.value || "";
     const thumbnail_url = thumbUrlInput?.value || "";
+    const image1_url = image1Input?.value || "";
+    const image2_url = image2Input?.value || "";
     
     console.log("Direct values read:", {
       title,
@@ -144,8 +152,13 @@ form?.addEventListener("submit", async (e) => {
       title: title.trim() || "",
       description: description.trim() || "",
       tech_stack: tech_stack.trim() || "",
+      client: client.trim() || "",
+      service: service.trim() || "",
       project_url: project_url.trim() || "",
       github_url: github_url.trim() || "",
+      image1_url: image1_url.trim() || "",
+      image2_url: image2_url.trim() || "",
+      
     };
     
     console.log("Payload to save:", payload);
@@ -199,9 +212,13 @@ listEl?.addEventListener("click", async (e) => {
       form.title.value = data.title || "";
       form.description.value = data.description || "";
       form.tech_stack.value = techLabel(data.tech_stack);
+      form.client.value = data.client || "";
+      form.service.value = data.service || "";
       form.project_url.value = data.project_url || "";
       form.github_url.value = data.github_url || "";
       form.thumbnail_url.value = data.thumbnail_image || "";
+      form.image1.value = data.image1_url || "";
+      form.image2.value = data.image2_url || "";
       editId = edit;
       submitBtn.textContent = "Update Proyek";
       setStatus("Mode edit aktif.");
