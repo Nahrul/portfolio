@@ -19,6 +19,13 @@ const resetBtn = document.querySelector("#reset-btn");
 let editId = null;
 let currentThumbPath = null;
 
+// DEBUG: Verify form is found
+console.log("Form element found:", form);
+console.log("Form ID check:", form?.id);
+if (!form) {
+  console.error("❌ ERROR: #project-form not found! Check HTML structure.");
+}
+
 function setStatus(message) {
   if (!statusEl) return;
   statusEl.textContent = message;
@@ -88,10 +95,35 @@ function clearForm() {
 
 form?.addEventListener("submit", async (e) => {
   e.preventDefault();
+  console.log("🔍 Form submit triggered");
+  console.log("Form reference:", form);
+  console.log("Form is null?", form === null);
+  
   setFormDisabled(true);
   submitBtn.textContent = editId ? "Menyimpan..." : "Menambah...";
   try {
+    if (!form) {
+      throw new Error("Form element not found!");
+    }
+    
     const fd = new FormData(form);
+    console.log("FormData created:", fd);
+    console.log("FormData size:", fd.entries().length);
+    
+    // Log each field
+    for (let [key, value] of fd.entries()) {
+      console.log(`Field: ${key} = ${value}`);
+    }
+    
+    // DEBUG: Log form values
+    console.log("Form Data Raw:", {
+      title: fd.get("title"),
+      description: fd.get("description"),
+      tech_stack: fd.get("tech_stack"),
+      project_url: fd.get("project_url"),
+      github_url: fd.get("github_url"),
+    });
+    
     const payload = {
       title: fd.get("title")?.trim() || "",
       description: fd.get("description")?.trim() || "",
@@ -99,6 +131,8 @@ form?.addEventListener("submit", async (e) => {
       project_url: fd.get("project_url")?.trim() || "",
       github_url: fd.get("github_url")?.trim() || "",
     };
+    
+    console.log("Payload to save:", payload);
 
     // Handle thumbnail URL (no upload)
     const thumbUrl = fd.get("thumbnail_url")?.trim();

@@ -76,6 +76,7 @@ FIREBASE_*.md (10 files)            ← Complete documentation
 | [FIREBASE_CHECKLIST.md](FIREBASE_CHECKLIST.md) | Tracking progress | 20 min |
 | [FIREBASE_TESTING.md](FIREBASE_TESTING.md) | Testing & troubleshooting | 15 min |
 | [FIREBASE_SAMPLE_DATA.md](FIREBASE_SAMPLE_DATA.md) | Contoh project data | 5 min |
+| [DIAGNOSE_EMPTY_DATA.md](DIAGNOSE_EMPTY_DATA.md) | Diagnose empty data issue | 5 min |
 | [FIREBASE_COST.md](FIREBASE_COST.md) | *(Coming soon)* | - |
 
 ---
@@ -260,6 +261,7 @@ Portfolio adalah **ready** jika:
 | Masalah | Solusi |
 |---------|--------|
 | **Data tidak tersimpan** | **[FIX_DATA_NOT_SAVING.md](FIX_DATA_NOT_SAVING.md)** ⚡ (2 min!) |
+| **Data tersimpan tapi kosong** | **[DIAGNOSE_EMPTY_DATA.md](DIAGNOSE_EMPTY_DATA.md)** 🔍 (step-by-step) |
 | Data tidak tersimpan (detail) | [DEBUG_DATA_NOT_SAVING.md](DEBUG_DATA_NOT_SAVING.md) |
 | Ada error console | [FIREBASE_TESTING.md](FIREBASE_TESTING.md) |
 | Setup perlu detail | [FIREBASE_SETUP.md](FIREBASE_SETUP.md) |
