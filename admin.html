@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Portfolio</title>
+  <link rel="stylesheet" href="asset/css/index.css">
+  <link rel="stylesheet" href="asset/css/admin.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Nahdevl</div>
+      <ul class="link">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <ul class="mobile-link">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">🌙</span>
+        <span class="toggle-text">Dark</span>
+      </button>
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="admin-layout">
+    <section id="login-section" class="panel">
+      <h2>Login Admin</h2>
+      <p>Gunakan email & password yang sudah di-whitelist.</p>
+      <form id="login-form" class="stack">
+        <label>Email
+          <input type="email" name="email" placeholder="admin@example.com" required>
+        </label>
+        <label>Password
+          <input type="password" name="password" placeholder="••••••••" required>
+        </label>
+        <button type="submit">Login</button>
+        <p id="auth-status" class="muted"></p>
+      </form>
+    </section>
+
+    <section id="admin-panel" class="panel hidden">
+      <div class="panel-header">
+        <div>
+          <h2>Kelola Projects</h2>
+          <p class="muted">Tambah, edit, atau hapus project.</p>
+        </div>
+        <div class="panel-actions">
+          <button id="logout-btn" class="secondary" type="button">Logout</button>
+        </div>
+      </div>
+
+      <form id="project-form" class="stack">
+        <div class="grid-2">
+          <label>Judul
+            <input type="text" name="title" required>
+          </label>
+          <label>Tech Stack (pisahkan dengan koma)
+            <input type="text" name="tech_stack" placeholder="React, Firebase">
+          </label>
+        </div>
+        <label>Deskripsi
+          <textarea name="description" rows="3" required></textarea>
+        </label>
+        <div class="grid-2">
+          <label>Live URL
+            <input type="url" name="project_url" placeholder="https://..." required>
+          </label>
+          <label>GitHub URL (opsional)
+            <input type="url" name="github_url" placeholder="https://github.com/...">
+          </label>
+        </div>
+        <label>Thumbnail Image URL (opsional)
+          <input type="url" name="thumbnail_url" placeholder="https://example.com/image.jpg">
+        </label>
+        <div class="form-actions">
+          <button id="submit-btn" type="submit">Simpan Proyek</button>
+          <button id="reset-btn" class="secondary" type="button">Reset</button>
+        </div>
+        <p id="admin-status" class="muted"></p>
+      </form>
+
+      <div class="list-panel">
+        <h3>Daftar Project</h3>
+        <ul id="project-list" class="project-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <script type="module" src="asset/js/firebase.js"></script>
+  <script type="module" src="asset/js/auth.js"></script>
+  <script type="module" src="asset/js/admin.js"></script>
+</body>
+</html>

@@ -1,31 +1,81 @@
+import { orderedProjectsQuery, getDocs } from "./firebase.js";
 
-        // Salin Skrip Theme Toggle dan Mobile Navbar dari index.html ke sini
-        const themeToggle = document.getElementById('theme-toggle');
-        const toggleIcon = themeToggle.querySelector('.toggle-icon');
-        const toggleText = themeToggle.querySelector('.toggle-text');
+const grid = document.querySelector("#projects-grid");
+const loadingEl = document.querySelector("#projects-loading");
+const emptyEl = document.querySelector("#projects-empty");
 
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-theme');
-            const dark = document.body.classList.contains('dark-theme');
-            toggleIcon.textContent = dark ? '☀️' : '🌙';
-            toggleText.textContent = dark ? 'Light' : 'Dark';
-        });
+function techLabel(value) {
+  if (!value) return "-";
+  if (Array.isArray(value)) return value.join(", ");
+  return value;
+}
 
-        // SKRIP UNTUK MOBILE NAVBAR
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-        const mobileLinks = document.querySelectorAll('.mobile-link a'); 
+function createCard(data) {
+  const card = document.createElement("article");
+  card.className = "project-card";
+  const thumb = data.thumbnail_image || "https://via.placeholder.com/640x360?text=Project";
+  const tech = techLabel(data.tech_stack);
+  const updatedAt = data.created_at?.toDate?.();
+  card.innerHTML = `
+    <div class="project-image">
+      <img src="${thumb}" alt="${data.title || "Project"}">
+    </div>
+    <div class="project-body">
+      <h4>${data.title || "Tanpa judul"}</h4>
+      <p class="project-desc">${data.description || ""}</p>
+      <p class="project-tech">${tech}</p>
+      <div class="project-links">
+        ${data.project_url ? `<a href="${data.project_url}" target="_blank" rel="noopener">Live</a>` : ""}
+        ${data.github_url ? `<a href="${data.github_url}" target="_blank" rel="noopener" class="ghost">Code</a>` : ""}
+      </div>
+      <p class="project-date">${updatedAt ? `Diperbarui ${updatedAt.toLocaleDateString()}` : ""}</p>
+    </div>`;
+  return card;
+}
 
-        hamburger.addEventListener('click', function() {
-            nav.classList.toggle('active');
-        });
+async function renderProjects() {
+  if (!grid) return;
+  loadingEl.style.display = "";
+  emptyEl.style.display = "none";
+  grid.innerHTML = "";
+  try {
+    const snap = await getDocs(orderedProjectsQuery);
+    loadingEl.style.display = "none";
+    if (snap.empty) {
+      emptyEl.style.display = "";
+      return;
+    }
+    snap.forEach((d) => {
+      grid.appendChild(createCard(d.data()));
+    });
+  } catch (err) {
+    loadingEl.textContent = `Gagal memuat proyek: ${err.message}`;
+  }
+}
 
-        // Tutup menu saat tautan diklik 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                // Hapus kelas aktif hanya jika tautan mengarah ke ID di halaman yang sama
-                if (link.getAttribute('href').startsWith('#')) {
-                    nav.classList.remove('active');
-                }
-            });
-        });
+function bindUI() {
+  const themeToggle = document.getElementById("theme-toggle");
+  const toggleIcon = themeToggle?.querySelector(".toggle-icon");
+  const toggleText = themeToggle?.querySelector(".toggle-text");
+  themeToggle?.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+    const dark = document.body.classList.contains("dark-theme");
+    if (toggleIcon) toggleIcon.textContent = dark ? "☀️" : "🌙";
+    if (toggleText) toggleText.textContent = dark ? "Light" : "Dark";
+  });
+
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector("nav");
+  const mobileLinks = document.querySelectorAll(".mobile-link a");
+  hamburger?.addEventListener("click", () => nav?.classList.toggle("active"));
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (link.getAttribute("href")?.startsWith("#")) {
+        nav?.classList.remove("active");
+      }
+    });
+  });
+}
+
+bindUI();
+renderProjects();

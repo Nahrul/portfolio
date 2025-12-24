@@ -46,33 +46,9 @@
                 <h3>Semua <span>Proyek</span> Saya</h3>
                 <p>Lihat secara mendalam semua karya kreatif yang telah saya selesaikan.</p>
             </div>
-            
-            <div class="portfolio-grid" id="projects-grid">
-                <div class="project-card fade-scale">
-                    <div class="project-image" style="background-image: url('asset/img/ecommerce.jpg');"></div>
-                    <h4>Website E-Commerce Modern</h4>
-                    <p>Full-stack development untuk platform e-commerce dengan fitur pembayaran dan inventaris.</p>
-                    <a href="project-detail.html?id=ecommerce" class="project-link">Lihat Detail</a>
-                </div>
-                <div class="project-card fade-scale">
-                    <div class="project-image" style="background-image: url('asset/img/landing-page.jpg');"></div>
-                    <h4>Landing Page Perusahaan SaaS</h4>
-                    <p>Desain dan implementasi landing page yang berfokus pada konversi untuk layanan perangkat lunak.</p>
-                    <a href="project-detail.html?id=landing-saas" class="project-link">Lihat Detail</a>
-                </div>
-                <div class="project-card fade-scale">
-                    <div class="project-image" style="background-image: url('asset/img/visualization-data.jpg');"></div>
-                    <h4>Sistem Otomatisasi Data</h4>
-                    <p>Membangun skrip Python untuk otomatisasi pengumpulan dan visualisasi data.</p>
-                    <a href="project-detail.html?id=visualization-data" class="project-link">Lihat Detail</a>
-                </div>
-                <div class="project-card fade-scale">
-                    <div class="project-image" style="background-image: url('asset/img/time-management.jpg');"></div>
-                    <h4>Aplikasi Mobile Berbasis Web (PWA)</h4>
-                    <p>Mengembangkan Progressive Web App untuk manajemen tugas tim kecil.</p>
-                    <a href="project-detail.html?id=time-management" class="project-link">Lihat Detail</a>
-                </div>
-                </div>
+            <div id="projects-loading" class="project-state">Memuat proyek...</div>
+            <div id="projects-empty" class="project-state" style="display:none;">Belum ada proyek.</div>
+            <div class="portfolio-grid" id="projects-grid"></div>
         </section>
         
     </main>
@@ -85,6 +61,7 @@
     </footer>
     
     <div class="custom-cursor"></div>
-    <script src="asset/js/projects.js"></script>
+    <script type="module" src="asset/js/firebase.js"></script>
+    <script type="module" src="asset/js/projects.js"></script>
 </body>
 </html>
