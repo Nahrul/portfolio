@@ -255,7 +255,18 @@ Portfolio adalah **ready** jika:
 
 ---
 
-## 🏁 Ready?
+## � Ada Masalah?
+
+| Masalah | Solusi |
+|---------|--------|
+| **Data tidak tersimpan** | **[FIX_DATA_NOT_SAVING.md](FIX_DATA_NOT_SAVING.md)** ⚡ (2 min!) |
+| Data tidak tersimpan (detail) | [DEBUG_DATA_NOT_SAVING.md](DEBUG_DATA_NOT_SAVING.md) |
+| Ada error console | [FIREBASE_TESTING.md](FIREBASE_TESTING.md) |
+| Setup perlu detail | [FIREBASE_SETUP.md](FIREBASE_SETUP.md) |
+
+---
+
+## �🏁 Ready?
 
 **👉 Mulai sekarang: [FIREBASE_QUICK_START.md](FIREBASE_QUICK_START.md)**
 
