@@ -106,40 +106,55 @@ form?.addEventListener("submit", async (e) => {
       throw new Error("Form element not found!");
     }
     
-    const fd = new FormData(form);
-    console.log("FormData created:", fd);
-    console.log("FormData size:", fd.entries().length);
+    // Alternative: Read values directly from input elements
+    const titleInput = form.querySelector('input[name="title"]');
+    const descInput = form.querySelector('textarea[name="description"]');
+    const techInput = form.querySelector('input[name="tech_stack"]');
+    const projectUrlInput = form.querySelector('input[name="project_url"]');
+    const githubUrlInput = form.querySelector('input[name="github_url"]');
+    const thumbUrlInput = form.querySelector('input[name="thumbnail_url"]');
     
-    // Log each field
-    for (let [key, value] of fd.entries()) {
-      console.log(`Field: ${key} = ${value}`);
-    }
+    console.log("Input elements found:", {
+      titleInput,
+      descInput,
+      techInput,
+      projectUrlInput,
+      githubUrlInput,
+      thumbUrlInput
+    });
     
-    // DEBUG: Log form values
-    console.log("Form Data Raw:", {
-      title: fd.get("title"),
-      description: fd.get("description"),
-      tech_stack: fd.get("tech_stack"),
-      project_url: fd.get("project_url"),
-      github_url: fd.get("github_url"),
+    // Read values directly
+    const title = titleInput?.value || "";
+    const description = descInput?.value || "";
+    const tech_stack = techInput?.value || "";
+    const project_url = projectUrlInput?.value || "";
+    const github_url = githubUrlInput?.value || "";
+    const thumbnail_url = thumbUrlInput?.value || "";
+    
+    console.log("Direct values read:", {
+      title,
+      description,
+      tech_stack,
+      project_url,
+      github_url,
+      thumbnail_url
     });
     
     const payload = {
-      title: fd.get("title")?.trim() || "",
-      description: fd.get("description")?.trim() || "",
-      tech_stack: fd.get("tech_stack")?.trim() || "",
-      project_url: fd.get("project_url")?.trim() || "",
-      github_url: fd.get("github_url")?.trim() || "",
+      title: title.trim() || "",
+      description: description.trim() || "",
+      tech_stack: tech_stack.trim() || "",
+      project_url: project_url.trim() || "",
+      github_url: github_url.trim() || "",
     };
     
     console.log("Payload to save:", payload);
 
     // Handle thumbnail URL (no upload)
-    const thumbUrl = fd.get("thumbnail_url")?.trim();
-    if (thumbUrl) {
+    if (thumbnail_url) {
       try {
-        new URL(thumbUrl); // Validasi format URL
-        payload.thumbnail_image = thumbUrl;
+        new URL(thumbnail_url); // Validasi format URL
+        payload.thumbnail_image = thumbnail_url;
       } catch {
         throw new Error("URL thumbnail tidak valid");
       }
