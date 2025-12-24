@@ -35,13 +35,13 @@ function loadProjectDetail(data) {
         <div><h4>Layanan</h4><p>${data.service}</p></div>
         <div><h4>Teknologi</h4><p>${data.tech_stack}</p></div>
         <div><h4>Diperbarui</h4><p>${updatedAt ? ` ${updatedAt.toLocaleDateString()}` : ""}</p></div>
-        <a href="${data.demoUrl}" target="_blank" class="live-demo-btn" style="pointer-events:none;cursor:default; background-color:#424342;">Demo Belum Tersedia</a>
+        <a href="${data.project_url}" class="live-demo-btn">Demo</a>
     `;
 
     // 4. Mengisi Media Utama
     document.querySelector('.main-media').innerHTML = `
         <img style="grid-area: a;" src="${data.thumbnail_image}" alt="Gambar utama proyek ${data.title}">
-        <img style="grid-area: b;" src="${data.image1}" alt="Gambar utama proyek ${data.title}">
+        <img style="grid-area: b;" src="${data.image1_url}" alt="Gambar utama proyek ${data.title}">
         <img style="grid-area: c;" src="${data.image2_url}" alt="Gambar utama proyek ${data.title}">
     `;
 
